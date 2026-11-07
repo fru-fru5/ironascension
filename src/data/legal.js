@@ -11,7 +11,7 @@ export const terms = {
       h: "2. Order-request workflow",
       ul: [
         "Submitting an order request creates a pending reservation. It is not an instant sale and no payment is taken on the site.",
-        "All requests are subject to stock and size verification by our team.",
+        "All requests are subject to stock verification by our team.",
         "You may modify or cancel a request before you receive payment confirmation and dispatch instructions.",
       ],
     },
@@ -27,12 +27,12 @@ export const terms = {
       h: "4. Availability and accuracy",
       ul: [
         "Items are subject to availability. A request does not guarantee fulfilment if stock runs out before review.",
-        "We try to keep descriptions, sizing charts and prices accurate, and may correct errors at any time.",
+        "We try to keep descriptions and prices accurate, and may correct errors at any time.",
       ],
     },
     {
       h: "5. Returns and exchanges",
-      p: ["Unworn, unwashed items in original packaging with tags attached can be exchanged for size or returned for store credit within 30 days of delivery. See our Shipping & Returns page for details."],
+      p: ["Unworn, unwashed items in original packaging with tags attached can be exchanged or returned for store credit within 30 days of delivery. See our Shipping & Returns page for details."],
     },
     {
       h: "6. Intellectual property",
@@ -52,8 +52,8 @@ export const shipping = {
     {
       h: "1. Order requests",
       ul: [
-        "Submit: choose your items and sizes and send your request from the cart.",
-        "Verify: our team checks stock and sizes and reserves your items.",
+        "Submit: choose your items and send your request from the cart.",
+        "Verify: our team checks stock and reserves your items.",
         "Confirm: we send your order breakdown with payment and dispatch instructions.",
         "You can modify or cancel a request before payment and dispatch are confirmed.",
       ],
@@ -70,8 +70,8 @@ export const shipping = {
     {
       h: "3. Returns and exchanges",
       ul: [
-        "30-day window: unworn, unwashed, odor-free items with tags and original packaging can be exchanged for another size or returned for store credit within 30 days of delivery.",
-        "Return shipping for size exchanges is paid by the customer unless we sent the wrong item.",
+        "30-day window: unworn, unwashed, odor-free items with tags and original packaging can be exchanged or returned for store credit within 30 days of delivery.",
+        "Return shipping for exchanges is paid by the customer unless we sent the wrong item.",
         "Final-sale items, if any, are marked on the product and cannot be returned.",
       ],
     },
@@ -124,7 +124,7 @@ export const privacy = {
 export const faq = [
   {
     q: "How does ordering work?",
-    a: "We use an order-request cart instead of instant payment. Choose your items and sizes, send your request, and our team confirms availability and sends payment and dispatch instructions.",
+    a: "We use an order-request cart instead of instant payment. Choose your items, send your request, and our team confirms availability and sends payment and dispatch instructions.",
   },
   {
     q: "Is my card charged when I submit a request?",
@@ -132,7 +132,7 @@ export const faq = [
   },
   {
     q: "What is your return policy?",
-    a: "Unworn, unwashed items in original packaging with tags can be exchanged for size or returned for store credit within 30 days of delivery. See the Shipping & Returns page.",
+    a: "Unworn, unwashed items in original packaging with tags can be exchanged or returned for store credit within 30 days of delivery. See the Shipping & Returns page.",
   },
   {
     q: "How long does shipping take?",
@@ -149,9 +149,5 @@ export const faq = [
   {
     q: "What payment methods do you accept?",
     a: "Bitcoin, Cashapp, Apple Pay, Zelle, Chime and PayPal. Pick your preferred method in the cart and we confirm it with you directly.",
-  },
-  {
-    q: "How do I choose my size?",
-    a: "Each product has a size selector. If you are between sizes or need help, contact support before ordering. Size exchanges are free to request within 30 days.",
   },
 ];

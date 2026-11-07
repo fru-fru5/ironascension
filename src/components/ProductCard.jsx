@@ -7,7 +7,6 @@ export default function ProductCard({ product }) {
   const { addItem } = useCart();
   const isMerch = product.kind === "merch";
   const cat = !isMerch ? getCategory(product.categoryId) : null;
-  const size = product.sizes.includes(site.defaultSize) ? site.defaultSize : product.sizes[0];
   const href = isMerch ? `/merch/${product.id}` : `/product/${product.id}`;
 
   return (
@@ -35,7 +34,7 @@ export default function ProductCard({ product }) {
           <Link to={href} className="btn btn-outline">
             {isMerch ? `View ${site.merchLabel}` : "View product"}
           </Link>
-          <button className="btn btn-primary" onClick={() => addItem(product, size)}>
+          <button className="btn btn-primary" onClick={() => addItem(product)}>
             Add to cart
           </button>
         </div>

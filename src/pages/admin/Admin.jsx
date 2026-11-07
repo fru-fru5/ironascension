@@ -1,15 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import "./admin.css";
+import { resolveAbout } from "../../data/about.js";
 
 const API = "/api/admin";
-const DEFAULT_SIZES = ["S", "M", "L", "XL", "XXL"];
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const money = (site, price) => `${site?.currency || "$"}${price}`;
 const dateLabel = (value) => new Date(value).toLocaleString();
-const splitSizes = (value) => value.split(",").map((v) => v.trim()).filter(Boolean);
 const splitLines = (value) => value.split(/\r?\n/);
-const joinSizes = (value) => (value || []).join(", ");
 const joinLines = (value) => (value || []).join("\n");
 const slugify = (value) =>
   String(value || "")
@@ -39,6 +37,7 @@ const tabs = [
   ["products", "Products"],
   ["categories", "Categories"],
   ["merch", "Merch"],
+  ["about", "About page"],
   ["settings", "Settings"],
   ["history", "History"],
 ];
@@ -150,7 +149,6 @@ export default function Admin() {
         categoryId: category.id,
         name: "",
         price: category.price || 0,
-        sizes: category.sizes || DEFAULT_SIZES,
         kind: "product",
         description: "",
         image: category.banner || "",
@@ -167,7 +165,6 @@ export default function Admin() {
         kind: "merch",
         name: "",
         price: 0,
-        sizes: DEFAULT_SIZES,
         description: "",
         image: "/images/categories/merch-card.jpg",
       },
@@ -188,7 +185,6 @@ export default function Admin() {
         banner: "",
         cardImage: "",
         price: 0,
-        sizes: DEFAULT_SIZES,
       },
     });
   };
@@ -417,6 +413,10 @@ export default function Admin() {
             <SettingsPanel catalog={catalog} update={update} images={images} setImages={setImages} />
           )}
 
+          {tab === "about" && (
+            <AboutPanel catalog={catalog} update={update} images={images} setImages={setImages} />
+          )}
+
           {tab === "history" && <HistoryPanel history={history} onRestore={restore} />}
         </main>
       </div>
@@ -584,7 +584,6 @@ function ProductPanel({
               <th>Name</th>
               {categories.length > 0 && <th>Category</th>}
               <th>Price</th>
-              <th>Sizes</th>
               <th />
             </tr>
           </thead>
@@ -606,7 +605,6 @@ function ProductPanel({
                   </td>
                   {categories.length > 0 && <td>{category?.name || "Unassigned"}</td>}
                   <td>{money(site, item.price)}</td>
-                  <td className="admin-muted">{item.sizes?.join(", ")}</td>
                   <td>
                     <div className="admin-row-actions">
                       <button className="admin-link" type="button" onClick={() => onEdit(item)}>
@@ -622,7 +620,7 @@ function ProductPanel({
             })}
             {items.length === 0 && (
               <tr>
-                <td colSpan={categories.length > 0 ? 6 : 5} className="admin-empty">
+                <td colSpan={categories.length > 0 ? 5 : 4} className="admin-empty">
                   No items match this view.
                 </td>
               </tr>
@@ -704,11 +702,6 @@ function SettingsPanel({ catalog, update, images, setImages }) {
           <TextField label="Hours" value={catalog.site.hours} onChange={(value) => setSite("hours", value)} />
           <TextField label="Currency" value={catalog.site.currency} onChange={(value) => setSite("currency", value)} />
           <TextField label="Merch label" value={catalog.site.merchLabel} onChange={(value) => setSite("merchLabel", value)} />
-          <TextField
-            label="Default size"
-            value={catalog.site.defaultSize}
-            onChange={(value) => setSite("defaultSize", value)}
-          />
           <TextField
             label="Return window (days)"
             type="number"
@@ -853,6 +846,195 @@ function SettingsPanel({ catalog, update, images, setImages }) {
   );
 }
 
+function AboutPanel({ catalog, update, images, setImages }) {
+  const about = resolveAbout(catalog.about);
+  const setAbout = (key, value) =>
+    update((current) => ({
+      ...current,
+      about: { ...resolveAbout(current.about), [key]: value },
+    }));
+  const setImage = (key, value) =>
+    update((current) => ({ ...current, images: { ...current.images, [key]: value } }));
+
+  return (
+    <div className="admin-stack">
+      <section className="admin-card">
+        <h2>Hero</h2>
+        <p className="admin-muted">
+          Use <code>{"{brand}"}</code> in any text field to insert the store name.
+        </p>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={about.heroEyebrow} onChange={(value) => setAbout("heroEyebrow", value)} />
+          <TextField label="Title" value={about.heroTitle} onChange={(value) => setAbout("heroTitle", value)} />
+          <TextAreaField label="Intro text" value={about.heroText} onChange={(value) => setAbout("heroText", value)} rows={3} />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <h2>Introduction</h2>
+        <div className="admin-form-grid">
+          <TextField label="Title" value={about.introTitle} onChange={(value) => setAbout("introTitle", value)} />
+          <TextAreaField label="Body" value={about.introBody} onChange={(value) => setAbout("introBody", value)} rows={4} />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <h2>Catalog section</h2>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={about.catalogEyebrow} onChange={(value) => setAbout("catalogEyebrow", value)} />
+          <TextField label="Title" value={about.catalogTitle} onChange={(value) => setAbout("catalogTitle", value)} />
+          <TextAreaField label="Intro text" value={about.catalogText} onChange={(value) => setAbout("catalogText", value)} rows={3} />
+          <TextField label="Merch card title" value={about.merchTitle} onChange={(value) => setAbout("merchTitle", value)} />
+          <TextAreaField label="Merch card text" value={about.merchText} onChange={(value) => setAbout("merchText", value)} rows={3} />
+        </div>
+        <p className="admin-muted">Category cards are generated from the Categories tab.</p>
+      </section>
+
+      <section className="admin-card">
+        <h2>Order-request process</h2>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={about.processEyebrow} onChange={(value) => setAbout("processEyebrow", value)} />
+          <TextField label="Title" value={about.processTitle} onChange={(value) => setAbout("processTitle", value)} />
+          <TextAreaField label="Intro text" value={about.processText} onChange={(value) => setAbout("processText", value)} rows={3} />
+        </div>
+        <AboutStepsField value={about.processSteps} onChange={(value) => setAbout("processSteps", value)} />
+      </section>
+
+      <section className="admin-card">
+        <h2>Quality assurance</h2>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={about.qualityEyebrow} onChange={(value) => setAbout("qualityEyebrow", value)} />
+          <TextField label="Title" value={about.qualityTitle} onChange={(value) => setAbout("qualityTitle", value)} />
+          <TextAreaField label="Body" value={about.qualityBody} onChange={(value) => setAbout("qualityBody", value)} rows={4} />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <h2>FAQ</h2>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={about.faqEyebrow} onChange={(value) => setAbout("faqEyebrow", value)} />
+          <TextField label="Title" value={about.faqTitle} onChange={(value) => setAbout("faqTitle", value)} />
+        </div>
+        <AboutFaqField value={about.faqItems} onChange={(value) => setAbout("faqItems", value)} />
+      </section>
+
+      <section className="admin-card">
+        <h2>Call to action</h2>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={about.ctaEyebrow} onChange={(value) => setAbout("ctaEyebrow", value)} />
+          <TextField label="Title" value={about.ctaTitle} onChange={(value) => setAbout("ctaTitle", value)} />
+          <TextAreaField label="Text" value={about.ctaText} onChange={(value) => setAbout("ctaText", value)} rows={3} />
+          <TextField label="Primary button" value={about.ctaPrimaryLabel} onChange={(value) => setAbout("ctaPrimaryLabel", value)} />
+          <TextField label="Secondary button" value={about.ctaSecondaryLabel} onChange={(value) => setAbout("ctaSecondaryLabel", value)} />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <h2>Page images</h2>
+        <div className="admin-form-grid admin-form-grid-wide">
+          <ImageField
+            label="Main editorial image"
+            value={catalog.images.about}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("about", value)}
+          />
+          <ImageField
+            label="Catalog lineup image"
+            value={catalog.images.aboutLineup}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("aboutLineup", value)}
+          />
+          <ImageField
+            label="Call-to-action background"
+            value={catalog.images.aboutCta}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("aboutCta", value)}
+          />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function AboutStepsField({ value, onChange }) {
+  const steps = value || [];
+  const patch = (index, key, next) =>
+    onChange(steps.map((step, stepIndex) => (stepIndex === index ? { ...step, [key]: next } : step)));
+
+  return (
+    <div className="admin-field admin-field-full">
+      <span>Steps</span>
+      <div className="admin-repeater">
+        {steps.map((step, index) => (
+          <div className="admin-repeater-item" key={index}>
+            <div className="admin-repeater-head">
+              <strong>Step {index + 1}</strong>
+              <button
+                className="admin-link admin-link-danger"
+                type="button"
+                onClick={() => onChange(steps.filter((_, stepIndex) => stepIndex !== index))}
+              >
+                Remove
+              </button>
+            </div>
+            <div className="admin-form-grid admin-form-grid-wide">
+              <TextField label="Title" value={step.title} onChange={(next) => patch(index, "title", next)} />
+              <TextAreaField label="Text" value={step.text} onChange={(next) => patch(index, "text", next)} rows={3} />
+            </div>
+          </div>
+        ))}
+        <button
+          className="admin-button admin-button-ghost"
+          type="button"
+          onClick={() => onChange([...steps, { title: "", text: "" }])}
+        >
+          Add step
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function AboutFaqField({ value, onChange }) {
+  const items = value || [];
+  const patch = (index, key, next) =>
+    onChange(items.map((item, itemIndex) => (itemIndex === index ? { ...item, [key]: next } : item)));
+
+  return (
+    <div className="admin-field admin-field-full">
+      <span>Questions</span>
+      <div className="admin-repeater">
+        {items.map((item, index) => (
+          <div className="admin-repeater-item" key={index}>
+            <div className="admin-repeater-head">
+              <strong>Question {index + 1}</strong>
+              <button
+                className="admin-link admin-link-danger"
+                type="button"
+                onClick={() => onChange(items.filter((_, itemIndex) => itemIndex !== index))}
+              >
+                Remove
+              </button>
+            </div>
+            <TextAreaField label="Question" value={item.q} onChange={(next) => patch(index, "q", next)} rows={2} />
+            <TextAreaField label="Answer" value={item.a} onChange={(next) => patch(index, "a", next)} rows={3} />
+          </div>
+        ))}
+        <button
+          className="admin-button admin-button-ghost"
+          type="button"
+          onClick={() => onChange([...items, { q: "", a: "" }])}
+        >
+          Add question
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function HistoryPanel({ history, onRestore }) {
   return (
     <section className="admin-card">
@@ -899,17 +1081,14 @@ function ProductForm({
   onCancel,
 }) {
   const [draft, setDraft] = useState(() => clone(product));
-  const [sizesText, setSizesText] = useState(joinSizes(product.sizes));
   const set = (key, value) => setDraft((current) => ({ ...current, [key]: value }));
 
   const submit = (event) => {
     event.preventDefault();
-    const sizes = splitSizes(sizesText);
     const next = {
       ...draft,
       name: draft.name.trim(),
       price: Number(draft.price) || 0,
-      sizes: sizes.length ? sizes : DEFAULT_SIZES,
       description: draft.description || "",
     };
     if (!next.name) {
@@ -948,7 +1127,6 @@ function ProductForm({
         )}
         <TextField label="Name" value={draft.name} onChange={(value) => set("name", value)} />
         <TextField label="Price" type="number" value={draft.price} onChange={(value) => set("price", value)} />
-        <TextField label="Sizes (comma separated)" value={sizesText} onChange={setSizesText} />
         <TextField label="Product ID" value={mode === "new" ? "Generated on save" : draft.id} onChange={() => {}} disabled />
       </div>
       <ImageField
@@ -981,12 +1159,10 @@ function ProductForm({
 
 function CategoryForm({ mode, category, images, setImages, onSave, onCancel }) {
   const [draft, setDraft] = useState(() => clone(category));
-  const [sizesText, setSizesText] = useState(joinSizes(category.sizes));
   const set = (key, value) => setDraft((current) => ({ ...current, [key]: value }));
 
   const submit = (event) => {
     event.preventDefault();
-    const sizes = splitSizes(sizesText);
     const name = draft.name.trim();
     const id = Number(draft.id) || 0;
     if (!name) {
@@ -1003,7 +1179,6 @@ function CategoryForm({ mode, category, images, setImages, onSave, onCancel }) {
       slug: slugify(draft.slug || name) || `category-${id}`,
       name,
       price: Number(draft.price) || 0,
-      sizes: sizes.length ? sizes : DEFAULT_SIZES,
     });
   };
 
@@ -1014,7 +1189,6 @@ function CategoryForm({ mode, category, images, setImages, onSave, onCancel }) {
         <TextField label="Slug" value={draft.slug} onChange={(value) => set("slug", value)} />
         <TextField label="Category ID" type="number" value={draft.id} onChange={(value) => set("id", value)} />
         <TextField label="Base price" type="number" value={draft.price} onChange={(value) => set("price", value)} />
-        <TextField label="Sizes (comma separated)" value={sizesText} onChange={setSizesText} />
         <TextField label="Blurb" value={draft.blurb} onChange={(value) => set("blurb", value)} />
       </div>
       <ImageField
@@ -1052,6 +1226,20 @@ function TextField({ label, value, onChange, type = "text", disabled = false }) 
         type={type}
         value={value ?? ""}
         disabled={disabled}
+        onChange={(event) => onChange(event.target.value)}
+      />
+    </label>
+  );
+}
+
+function TextAreaField({ label, value, onChange, rows = 4 }) {
+  return (
+    <label className="admin-field admin-field-full">
+      <span>{label}</span>
+      <textarea
+        className="admin-input admin-textarea"
+        rows={rows}
+        value={value ?? ""}
         onChange={(event) => onChange(event.target.value)}
       />
     </label>

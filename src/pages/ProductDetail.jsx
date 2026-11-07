@@ -1,25 +1,39 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
+import Seo from "../components/Seo.jsx";
 import { BackArrow } from "../components/Icons.jsx";
 import { useCart } from "../context/CartContext.jsx";
 import { getCategory, merch, products, site } from "../data/site.js";
 import NotFound from "./NotFound.jsx";
 
+const summarize = (value) =>
+  String(value || "")
+    .replace(/^in stock\s*/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
 export default function ProductDetail() {
   const { id } = useParams();
   const product = [...products, ...merch].find((p) => p.id === id);
   const { addItem } = useCart();
-  const [size, setSize] = useState(null);
   const [qty, setQty] = useState(1);
 
   if (!product) return <NotFound />;
   const isMerch = product.kind === "merch";
   const cat = isMerch ? null : getCategory(product.categoryId);
-  const chosen = size || (product.sizes.includes(site.defaultSize) ? site.defaultSize : product.sizes[0]);
+  const path = isMerch ? `/merch/${product.id}` : `/product/${product.id}`;
 
   return (
-    <section className="section">
+    <>
+      <Seo
+        title={`${product.name} | ${site.name}`}
+        description={summarize(product.description) || `${product.name} from ${site.name}.`}
+        path={path}
+        image={product.image}
+        type="product"
+      />
+      <section className="section">
       <div className="container">
         <Link to={isMerch ? "/merch" : cat ? `/${cat.slug}` : "/products"} className="back-link">
           <BackArrow /> Back to {isMerch ? site.merchLabel.toLowerCase() : "category"}
@@ -36,14 +50,6 @@ export default function ProductDetail() {
             <p className="body-lg">{product.description}</p>
 
             <div className="form">
-              <label>
-                Size
-                <select value={chosen} onChange={(e) => setSize(e.target.value)}>
-                  {product.sizes.map((s) => (
-                    <option key={s}>{s}</option>
-                  ))}
-                </select>
-              </label>
               <div>
                 <span className="label-text">Quantity</span>
                 <div className="qty">
@@ -52,7 +58,7 @@ export default function ProductDetail() {
                   <button aria-label="Increase quantity" onClick={() => setQty(qty + 1)}>+</button>
                 </div>
               </div>
-              <button className="btn btn-primary btn-block" onClick={() => addItem(product, chosen, qty)}>
+              <button className="btn btn-primary btn-block" onClick={() => addItem(product, qty)}>
                 Add to cart
               </button>
               <Link to="/order" className="btn btn-outline btn-block">Go to cart</Link>
@@ -60,6 +66,7 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

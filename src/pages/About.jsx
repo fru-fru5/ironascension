@@ -2,29 +2,35 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
 import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
 import BgSection from "../components/BgSection.jsx";
-import { site, images, categories } from "../data/site.js";
-import { faq } from "../data/legal.js";
+import Seo from "../components/Seo.jsx";
+import { site, images, categories, about } from "../data/site.js";
+import { formatAboutText } from "../data/about.js";
 
 const pad = (n) => String(n).padStart(2, "0");
 
 export default function About() {
+  const text = (value) => formatAboutText(value, site.name);
+
   return (
     <>
+      <Seo
+        title={text(about.heroTitle)}
+        description={text(about.heroText)}
+        path="/about"
+        image={images.about}
+        type="article"
+      />
       <PageHero
-        eyebrow="The Brand"
-        title={`About ${site.name}`}
-        text="Considered design. Honest materials. Built to be worn hard."
+        eyebrow={text(about.heroEyebrow)}
+        title={text(about.heroTitle)}
+        text={text(about.heroText)}
       />
 
       <section className="section">
         <div className="container split">
           <div>
-            <h2>More than a storefront.</h2>
-            <p className="body-lg">
-              At {site.name}, we design and curate premium clothing for athletes, creatives and
-              everyday wearers. Our platform is a complete destination for tees, tanks, outerwear,
-              bottoms and accessories, all built on strict standards for fabric, fit and finish.
-            </p>
+            <h2>{text(about.introTitle)}</h2>
+            <p className="body-lg">{text(about.introBody)}</p>
           </div>
           <ImagePlaceholder src={images.about} alt="Editorial portrait" label="Editorial portrait (images.about)" ratio="4 / 5" />
         </div>
@@ -32,9 +38,9 @@ export default function About() {
 
       <section className="section section-alt">
         <div className="container">
-          <p className="eyebrow">Catalog</p>
-          <h2>Our Catalog &amp; Product Divisions</h2>
-          <p className="body-lg">We maintain distinct divisions, plus a dedicated merch line.</p>
+          <p className="eyebrow">{text(about.catalogEyebrow)}</p>
+          <h2>{text(about.catalogTitle)}</h2>
+          <p className="body-lg">{text(about.catalogText)}</p>
           <div className="grid grid-info">
             {categories.map((c) => (
               <Link key={c.id} to={`/${c.slug}`} className="info-card">
@@ -45,8 +51,8 @@ export default function About() {
             ))}
             <Link to="/merch" className="info-card">
               <span className="info-num">{pad(categories.length + 1)}</span>
-              <h3>{site.name} {site.merchLabel}</h3>
-              <p className="muted">A dedicated line of premium athletic apparel and training gear.</p>
+              <h3>{text(about.merchTitle)}</h3>
+              <p className="muted">{text(about.merchText)}</p>
             </Link>
           </div>
           <div className="gap-md" />
@@ -56,50 +62,37 @@ export default function About() {
 
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Order-Request System</p>
-          <h2>Discretion. Verification. Confirmation.</h2>
-          <p className="body-lg">
-            To keep every order accurate and discreet, {site.name} uses an Order-Request Cart
-            Workflow rather than direct online payment processing.
-          </p>
+          <p className="eyebrow">{text(about.processEyebrow)}</p>
+          <h2>{text(about.processTitle)}</h2>
+          <p className="body-lg">{text(about.processText)}</p>
           <ol className="steps">
-            <li>
-              <h3>Select &amp; Reserve</h3>
-              <p className="muted">Browse the catalog or merch section, choose your items and sizes, and submit an order request through the reservation cart.</p>
-            </li>
-            <li>
-              <h3>Stock &amp; Size Verification</h3>
-              <p className="muted">Our team reviews your request, verifies stock availability for your items and sizes, and reserves your allocation.</p>
-            </li>
-            <li>
-              <h3>Fulfillment Confirmation</h3>
-              <p className="muted">You receive direct, secure confirmation details with your order breakdown and simple payment steps to start dispatch.</p>
-            </li>
+            {about.processSteps.map((step, index) => (
+              <li key={index}>
+                <h3>{text(step.title)}</h3>
+                <p className="muted">{text(step.text)}</p>
+              </li>
+            ))}
           </ol>
         </div>
       </section>
 
       <section className="section section-alt">
         <div className="container prose">
-          <p className="eyebrow">Quality Assurance &amp; Transparency</p>
-          <h2>Checked, every batch.</h2>
-          <p className="body-lg">
-            Every item is inspected for stitching, fabric weight, colour consistency and sizing
-            before it is listed. Whether you are ordering core pieces or official {site.name} gear,
-            we prioritize total transparency and premium execution.
-          </p>
+          <p className="eyebrow">{text(about.qualityEyebrow)}</p>
+          <h2>{text(about.qualityTitle)}</h2>
+          <p className="body-lg">{text(about.qualityBody)}</p>
         </div>
       </section>
 
       <section className="section">
         <div className="container prose">
-          <p className="eyebrow">FAQ</p>
-          <h2>Frequently Asked Questions</h2>
+          <p className="eyebrow">{text(about.faqEyebrow)}</p>
+          <h2>{text(about.faqTitle)}</h2>
           <div className="faq">
-            {faq.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
+            {about.faqItems.map((item, index) => (
+              <details key={index}>
+                <summary>{text(item.q)}</summary>
+                <p>{text(item.a)}</p>
               </details>
             ))}
           </div>
@@ -108,12 +101,12 @@ export default function About() {
 
       {/* CTA: background image slot = images.aboutCta */}
       <BgSection src={images.aboutCta} label="CTA background (images.aboutCta)" className="cta">
-        <p className="eyebrow">Get In Touch</p>
-        <h2>Questions about your order or sizing?</h2>
-        <p className="lead">Our customer support team is available to assist with order requests, availability or sizing.</p>
+        <p className="eyebrow">{text(about.ctaEyebrow)}</p>
+        <h2>{text(about.ctaTitle)}</h2>
+        <p className="lead">{text(about.ctaText)}</p>
         <div className="btn-stack">
-          <Link to="/contact" className="btn btn-primary">Contact Support</Link>
-          <Link to="/products" className="btn btn-outline">Browse Catalog</Link>
+          <Link to="/contact" className="btn btn-primary">{text(about.ctaPrimaryLabel)}</Link>
+          <Link to="/products" className="btn btn-outline">{text(about.ctaSecondaryLabel)}</Link>
         </div>
       </BgSection>
     </>

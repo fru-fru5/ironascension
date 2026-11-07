@@ -1,10 +1,17 @@
 import ProductCard from "../components/ProductCard.jsx";
-import { products } from "../data/site.js";
+import Seo from "../components/Seo.jsx";
+import { products, site } from "../data/site.js";
 
 export default function Category({ category }) {
   const list = products.filter((p) => p.categoryId === category.id);
   return (
     <>
+      <Seo
+        title={`${category.name} | ${site.name}`}
+        description={`${category.blurb || category.name}. Shop ${category.name} products at ${site.name}.`}
+        path={`/${category.slug}`}
+        image={category.banner || category.cardImage}
+      />
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">Category {category.id}</p>

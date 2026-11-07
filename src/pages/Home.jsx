@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo.jsx";
 import { site, images, categories } from "../data/site.js";
 
 export default function Home() {
+  const categoryNames = categories.map((c) => c.name).join(", ");
+
   return (
     <>
+      <Seo
+        title={`${site.name} | ${site.tagline}`}
+        description={`${site.name} — ${site.tagline} Browse ${categories.length} product categories including ${categoryNames}.`}
+        image={images.hero}
+      />
       {/* HERO: background art = images.hero */}
       <section className="hero">
         <div className="hero-art">
@@ -43,8 +51,8 @@ export default function Home() {
             </p>
             <p className="body-lg" style={{ marginBottom: 16 }}>
               Every piece is checked for fabric, fit and finish before it is listed, and every order
-              runs through a discreet Order-Request Workflow: no card is charged until your items and
-              sizes are verified and your dispatch is confirmed.
+              runs through a discreet Order-Request Workflow: no card is charged until your items are
+              verified and your dispatch is confirmed.
             </p>
             <Link to="/about" className="btn btn-primary">Learn More About Us</Link>
           </div>

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
 import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
+import Seo from "../components/Seo.jsx";
 import { CloseIcon } from "../components/Icons.jsx";
 import { useCart } from "../context/CartContext.jsx";
 import { site, discounts, paymentMethods, freeGift } from "../data/site.js";
@@ -9,7 +10,7 @@ import { site, discounts, paymentMethods, freeGift } from "../data/site.js";
 const money = (n) => `${site.currency}${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
 export default function Cart() {
-  const { items, setQty, setSize, removeItem, clear, count, subtotal } = useCart();
+  const { items, setQty, removeItem, clear, count, subtotal } = useCart();
   const [form, setForm] = useState({ name: "", email: "", phone: "", payment: "", contactVia: "", address: "", notes: "" });
   const [promo, setPromo] = useState("");
   const [promoApplied, setPromoApplied] = useState(false);
@@ -41,7 +42,7 @@ export default function Cart() {
     [
       `New order request - ${site.name}`,
       "",
-      ...items.map((i) => `${i.qty} x ${i.name} (${i.size}) - ${money(i.price * i.qty)}`),
+      ...items.map((i) => `${i.qty} x ${i.name} - ${money(i.price * i.qty)}`),
       "",
       `Subtotal: ${money(subtotal)}`,
       totals.combined > 0 && `Discount (${totals.combined}% off): -${money(totals.discount)}`,
@@ -84,6 +85,12 @@ export default function Cart() {
 
   return (
     <>
+      <Seo
+        title={`Your Cart | ${site.name}`}
+        description="Review your order request and send it to our team."
+        path="/order"
+        noindex
+      />
       <PageHero
         eyebrow="Cart"
         title="Your Cart"
@@ -107,18 +114,6 @@ export default function Cart() {
                     <div className="cart-info">
                       <strong>{i.name}</strong>
                       <span className="muted">{money(i.price)} each</span>
-                      {i.sizes && i.sizes.length > 1 && (
-                        <select
-                          className="size-select"
-                          value={i.size}
-                          onChange={(e) => setSize(i.key, e.target.value)}
-                          aria-label={`Size for ${i.name}`}
-                        >
-                          {i.sizes.map((s) => (
-                            <option key={s}>{s}</option>
-                          ))}
-                        </select>
-                      )}
                       <div className="qty">
                         <button aria-label={`Decrease ${i.name}`} onClick={() => setQty(i.key, i.qty - 1)}>−</button>
                         <span>{i.qty}</span>

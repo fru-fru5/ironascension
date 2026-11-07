@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
 import SearchBox from "../components/SearchBox.jsx";
 import ProductCard from "../components/ProductCard.jsx";
-import { images, categories, products } from "../data/site.js";
+import Seo from "../components/Seo.jsx";
+import { images, categories, products, site } from "../data/site.js";
 
 export default function Products() {
   const [q, setQ] = useState("");
@@ -15,6 +16,11 @@ export default function Products() {
 
   return (
     <>
+      <Seo
+        title={`Shop All Products | ${site.name}`}
+        description={`Browse all ${products.length} products across ${categories.length} categories at ${site.name}. Search the catalog and request your order online.`}
+        image={images.productsHero}
+      />
       <PageHero
         withBg
         bg={images.productsHero}
@@ -48,6 +54,8 @@ export default function Products() {
                     className="category"
                     style={{ backgroundImage: `url(${c.cardImage || c.banner})` }}
                   >
+                    <small>Category {String(c.id).padStart(2, "0")}</small>
+                    <h3>{c.name}</h3>
                     <span>
                       {n} {n === 1 ? "product" : "products"} →
                     </span>
@@ -59,6 +67,8 @@ export default function Products() {
                 className="category"
                 style={{ backgroundImage: `url(${images.lineup})` }}
               >
+                <small>Collection</small>
+                <h3>{site.merchLabel}</h3>
                 <span>View merchandise →</span>
               </Link>
             </div>

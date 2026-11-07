@@ -1,9 +1,15 @@
 import PageHero from "./PageHero.jsx";
+import Seo from "./Seo.jsx";
 import { site } from "../data/site.js";
 
 export default function LegalPage({ title, subtitle, sections, intro }) {
   return (
     <>
+      <Seo
+        title={`${title} | ${site.name}`}
+        description={subtitle}
+        type="article"
+      />
       <PageHero eyebrow="Legal" title={title} text={subtitle} />
       <section className="section">
         <div className="container prose">

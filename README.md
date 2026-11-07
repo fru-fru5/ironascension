@@ -14,7 +14,7 @@ npm run build    # production build in /dist
 ## Local admin (development only)
 Run `npm run dev`, then open `/admin` on the local Vite URL (for example `http://localhost:5173/admin`).
 
-- Edit products, categories, merch, prices, sizes, images and site settings.
+- Edit products, categories, merch, prices, images, the About page copy and FAQ, and site settings.
 - Save writes the catalog to `src/data/catalog.json`.
 - The last 40 saved snapshots are kept in `src/data/admin-history.json` and can be restored from the History tab.
 - Uploaded images go to `public/images/uploads`.
@@ -29,22 +29,31 @@ Run `npm run dev`, then open `/admin` on the local Vite URL (for example `http:/
    - Build command: `npm run build`
    - Build output directory: `dist`
 4. If the build uses an older Node version, add an environment variable `NODE_VERSION=22`.
-5. Deploy. `public/_redirects` handles refreshes and direct links to client-side routes.
+5. Deploy.
+
+`npm run build` runs Vite and then `scripts/postbuild-seo.mjs`, which writes route-specific
+`.html` files plus `sitemap.xml` and `robots.txt`. Cloudflare Pages serves `/products` from
+`products.html`, product pages from `product/<id>.html`, and falls back to the SPA for unknown
+routes. Do not add a `/* /index.html 200` catch-all to `public/_redirects`; it would override
+those static route files.
 
 After editing the catalog locally, run `npm run build` to verify, then commit and push. Cloudflare redeploys automatically.
 
+## SEO
+The canonical base URL is `https://ironascensions.com`. Override it at build time with
+`VITE_SITE_URL` if the domain changes.
+
+- Each page renders `<Seo>` from `src/components/Seo.jsx`, which sets its title, description,
+  canonical, robots, Open Graph and Twitter tags. `scripts/postbuild-seo.mjs` prerenders the same
+  tags into static HTML for crawlers.
+- Structured data covers Organization, WebSite, Product, BreadcrumbList, CollectionPage and FAQ.
+- `dist/sitemap.xml` lists every indexable route. `dist/robots.txt` disallows `/admin` and `/order`;
+  the cart and 404 page are `noindex`.
+
 ## Live chat (Smartsupp)
-The floating chat uses Smartsupp when `VITE_SMARTSUPP_KEY` is set. Without a key, it falls back to the WhatsApp button.
+The floating chat button opens Smartsupp live chat. The account key is set in `src/components/ChatButton.jsx` and Smartsupp's own floating bubble is hidden so the site's button is the only chat launcher.
 
-1. Create a Smartsupp account and copy your key from **Settings -> Channels -> Live chat -> Installation -> Insert code**.
-2. Locally, create `.env` (not committed) and add:
-   ```bash
-   VITE_SMARTSUPP_KEY=your_key_here
-   ```
-3. In Cloudflare Pages, add the same `VITE_SMARTSUPP_KEY` environment variable.
-4. Rebuild or redeploy.
-
-Smartsupp's Free plan allows one website and 25 conversations per month.
+To use a different Smartsupp account, either edit the key in `src/components/ChatButton.jsx` or set `VITE_SMARTSUPP_KEY` in `.env` (local) and in Cloudflare Pages (production). A set env var overrides the built-in key.
 
 ## What to edit
 - Use the local admin at `/admin` for catalog and site settings.
@@ -65,6 +74,5 @@ Legal and FAQ text: `src/data/legal.js` (template copy, have it reviewed before 
 
 ## Notes
 - The cart is saved in the browser. There is no backend: "Send by email" opens the customer's mail app,
-  "Send by WhatsApp" opens a chat with the order summary pre-filled. The floating chat uses Smartsupp when configured, otherwise WhatsApp.
+  "Send by WhatsApp" opens a chat with the order summary pre-filled. The floating chat button opens Smartsupp live chat.
 - Age verification is remembered in the browser (localStorage key `age-verified`).
-- Size: cards add the default size (M); customers can change it in the cart or on the product page.

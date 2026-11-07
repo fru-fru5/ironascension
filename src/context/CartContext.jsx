@@ -25,14 +25,14 @@ export function CartProvider({ children }) {
       timer.current = setTimeout(() => setToast(""), 1800);
     };
 
-    const addItem = (product, size, qty = 1) => {
+    const addItem = (product, qty = 1) => {
       setItems((prev) => {
-        const key = `${product.id}|${size}`;
+        const key = product.id;
         const found = prev.find((i) => i.key === key);
         if (found) return prev.map((i) => (i.key === key ? { ...i, qty: i.qty + qty } : i));
         return [
           ...prev,
-          { key, id: product.id, name: product.name, price: product.price, image: product.image, sizes: product.sizes, size, qty },
+          { key, id: product.id, name: product.name, price: product.price, image: product.image, qty },
         ];
       });
       showToast(`${product.name} added to cart`);
@@ -43,25 +43,11 @@ export function CartProvider({ children }) {
         qty <= 0 ? prev.filter((i) => i.key !== key) : prev.map((i) => (i.key === key ? { ...i, qty } : i))
       );
 
-    const setSize = (key, size) =>
-      setItems((prev) => {
-        const line = prev.find((i) => i.key === key);
-        if (!line) return prev;
-        const newKey = `${line.id}|${size}`;
-        const other = prev.find((i) => i.key === newKey);
-        if (other) {
-          return prev
-            .filter((i) => i.key !== key)
-            .map((i) => (i.key === newKey ? { ...i, qty: i.qty + line.qty } : i));
-        }
-        return prev.map((i) => (i.key === key ? { ...i, key: newKey, size } : i));
-      });
-
     const removeItem = (key) => setItems((prev) => prev.filter((i) => i.key !== key));
     const clear = () => setItems([]);
     const count = items.reduce((n, i) => n + i.qty, 0);
     const subtotal = items.reduce((n, i) => n + i.qty * i.price, 0);
-    return { items, addItem, setQty, setSize, removeItem, clear, count, subtotal, toast };
+    return { items, addItem, setQty, removeItem, clear, count, subtotal, toast };
   }, [items, toast]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

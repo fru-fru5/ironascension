@@ -2,6 +2,7 @@ import { useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import SearchBox from "../components/SearchBox.jsx";
 import ProductCard from "../components/ProductCard.jsx";
+import Seo from "../components/Seo.jsx";
 import { images, merch, site } from "../data/site.js";
 
 export default function Merch() {
@@ -10,6 +11,12 @@ export default function Merch() {
   const list = merch.filter((m) => m.name.toLowerCase().includes(query));
   return (
     <>
+      <Seo
+        title={`${site.merchLabel} | ${site.name}`}
+        description={`Shop ${site.name} ${site.merchLabel.toLowerCase()} — training apparel and lifestyle accessories.`}
+        path="/merch"
+        image={images.merchHero}
+      />
       <PageHero
         withBg
         bg={images.merchHero}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import { MailIcon, PhoneIcon, ClockIcon } from "../components/Icons.jsx";
-import { site } from "../data/site.js";
+import { site, images } from "../data/site.js";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", orderId: "", subject: "", message: "" });
@@ -31,6 +32,12 @@ export default function Contact() {
 
   return (
     <>
+      <Seo
+        title={`Contact ${site.name}`}
+        description={`Contact ${site.name} customer and order support by email, phone or live chat.`}
+        path="/contact"
+        image={images.hero}
+      />
       <PageHero eyebrow="Support" title={`Contact ${site.name}`} text="Get in touch with Customer & Order Support." />
       <section className="section">
         <div className="container split split-top">
@@ -38,7 +45,7 @@ export default function Contact() {
             <h2>Let's talk.</h2>
             <p className="body-lg">
               Have questions about submitting an order request, checking catalog availability,
-              tracking a shipment, or selecting the right size from our merchandise section? Our
+              tracking a shipment, or checking product availability? Our
               dedicated support team is available to assist you.
             </p>
             <div className="contact-cards">
@@ -68,8 +75,8 @@ export default function Contact() {
             <h3 className="h3-plain">How Order Request Support Works</h3>
             <ul className="body-list">
               <li><strong>Order Status Inquiries:</strong> Please include your Order Request ID below for faster processing.</li>
-              <li><strong>Merchandise Exchanges:</strong> For sizing adjustments or exchanges on {site.name} apparel and gear, contact support with your order details within {site.returnWindowDays} days of delivery.</li>
-              <li><strong>Catalog &amp; Stock Questions:</strong> For questions on specific item availability or sizing, our logistics team can verify stock and reservation status upon request.</li>
+              <li><strong>Merchandise Exchanges:</strong> For exchanges on {site.name} apparel and gear, contact support with your order details within {site.returnWindowDays} days of delivery.</li>
+              <li><strong>Catalog &amp; Stock Questions:</strong> For questions on specific item availability, our logistics team can verify stock and reservation status upon request.</li>
             </ul>
           </div>
 
