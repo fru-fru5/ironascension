@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../components/Breadcrumbs.jsx";
 import PageHero from "../components/PageHero.jsx";
 import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
 import BgSection from "../components/BgSection.jsx";
@@ -20,6 +21,16 @@ export default function About() {
         image={images.about}
         type="article"
       />
+      <div className="breadcrumb-bar">
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+            ]}
+          />
+        </div>
+      </div>
       <PageHero
         eyebrow={text(about.heroEyebrow)}
         title={text(about.heroTitle)}

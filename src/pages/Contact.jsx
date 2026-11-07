@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Breadcrumbs from "../components/Breadcrumbs.jsx";
 import PageHero from "../components/PageHero.jsx";
 import Seo from "../components/Seo.jsx";
 import { MailIcon, PhoneIcon, ClockIcon } from "../components/Icons.jsx";
@@ -38,6 +39,16 @@ export default function Contact() {
         path="/contact"
         image={images.hero}
       />
+      <div className="breadcrumb-bar">
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Contact", path: "/contact" },
+            ]}
+          />
+        </div>
+      </div>
       <PageHero eyebrow="Support" title={`Contact ${site.name}`} text="Get in touch with Customer & Order Support." />
       <section className="section">
         <div className="container split split-top">

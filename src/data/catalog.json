@@ -2,13 +2,13 @@
   "site": {
     "name": "IRON ASCENSION",
     "tagline": "Strength. Science. Discipline.",
-    "email": "contact@ironasensions.com",
+    "email": "contact@ironascensions.com",
     "whatsappNumber": "16892827251",
     "phone": "+1 (423) 484-7466",
-    "hours": "Mon “ Fri, 8:00 AM “ 6:00 PM EST",
+    "hours": "Mon-Fri, 8:00 AM - 6:00 PM EST",
     "currency": "$",
     "returnWindowDays": 30,
-    "effectiveDate": "[Effective date]",
+    "effectiveDate": "November 7, 2026",
     "merchLabel": "Merch"
   },
   "announcements": [
@@ -43,7 +43,7 @@
     "heroTitle": "About {brand}",
     "heroText": "Considered design. Honest materials. Built to be worn hard.",
     "introTitle": "More than a storefront.",
-    "introBody": "At {brand}, we design and curate premium clothing for athletes, creatives and everyday wearers. Our platform is a complete destination for tees, tanks, outerwear, bottoms and accessories, all built on strict standards for fabric, fit and finish.",
+    "introBody": "At Iron Ascension, we curate elite-level performance solutions and high-tier athletic gear designed for serious bodybuilders, athletes, and fitness professionals. Built on a foundation of strict laboratory standards and a premium pharmaceutical aesthetic, our platform serves as a complete destination for both advanced compound protocols and official brand merchandise.",
     "catalogEyebrow": "Catalog",
     "catalogTitle": "Our Catalog & Product Divisions",
     "catalogText": "We maintain distinct divisions, plus a dedicated merch line.",
@@ -68,7 +68,7 @@
     ],
     "qualityEyebrow": "Quality Assurance & Transparency",
     "qualityTitle": "Checked, every batch.",
-    "qualityBody": "Every item is inspected for stitching, fabric weight and colour consistency before it is listed. Whether you are ordering core pieces or official {brand} gear, we prioritize total transparency and premium execution.",
+    "qualityBody": "Every compound listed on Iron Ascension is subject to high-performance liquid chromatography (HPLC) quantitative testing and purity verification. Whether you are ordering cycle support or official Iron Ascension gear, we prioritize total transparency and premium execution.",
     "faqEyebrow": "FAQ",
     "faqTitle": "Frequently Asked Questions",
     "faqItems": [
@@ -141,64 +141,218 @@
     {
       "id": 1,
       "slug": "category-1",
-      "name": "INJECTABLES",
+      "name": ".",
       "blurb": "PREMIUM, PURITY, PERFORMANCE",
-      "banner": "/images/uploads/se3-2.png",
-      "cardImage": "/images/uploads/se3.png",
+      "seoDescription": "Shop research-grade injectables including testosterone, trenbolone, masteron and primobolan formulations with clear strengths and prices.",
+      "introTitle": "Research-Grade Injectable Compounds",
+      "intro": "The Iron Ascension injectables catalog brings together testosterone, nandrolone, trenbolone, masteron, primobolan and blend formulations in one place. Every listing shows the compound name, concentration and current catalog price, so you can compare short esters, long esters and high-concentration options without guessing.\n\nWe focus on clear product labeling, consistent batch presentation and discreet packing on every order request. Whether you are building a foundational testosterone protocol or restocking a specific compound, this collection covers the most requested injectable formats. Our team confirms availability before payment and dispatch instructions are sent.",
+      "faqTitle": "Injectable ordering questions",
+      "faq": [
+        {
+          "q": "How are injectable products shipped?",
+          "a": "Order requests are reviewed within 24 business hours, then packed discreetly. Tracking details are sent by email after your parcel is handed to the carrier."
+        },
+        {
+          "q": "Can I mix products from different categories in one request?",
+          "a": "Yes. Build your cart across injectables, orals, PCT, HGH and support products, then send a single order request."
+        },
+        {
+          "q": "Are the listed concentrations accurate?",
+          "a": "Each product name includes its concentration, such as 250 or 300. Our team verifies the item and batch before confirming your request."
+        },
+        {
+          "q": "How do I ask about stock?",
+          "a": "Use live chat or the contact page with the product name. Support can confirm current availability before you submit your request."
+        }
+      ],
+      "banner": "/images/uploads/se3-2.jpg",
+      "cardImage": "/images/uploads/se3.jpg",
       "price": 29
     },
     {
       "id": 2,
       "slug": "category-2",
-      "name": "Oral Tablets",
+      "name": ".",
       "blurb": "Oral research compounds",
-      "banner": "/images/uploads/se7-3.png",
-      "cardImage": "/images/uploads/se7.png",
+      "seoDescription": "Compare oral tablets including Anavar, Turinabol, Dianabol, Anadrol, Winstrol and Proviron with clear strengths, sealed packs and simple ordering.",
+      "introTitle": "Oral Tablet Catalog",
+      "intro": "Our oral tablet range covers Anavar, Turinabol, Dianabol, Anadrol, Winstrol, Halotestin and Proviron across multiple strengths. Tablets are presented in clearly labeled, sealed packs, and every listing shows the compound, dose per tablet and catalog price.\n\nThis makes it straightforward to compare short-acting oral options for a cycle or to restock a specific dose. We keep the ordering process simple: add what you need to the cart, send one order request, and our team confirms stock before sending payment details. If you are unsure which strength matches your plan, support can point you to the right listing.",
+      "faqTitle": "Oral tablet questions",
+      "faq": [
+        {
+          "q": "What strengths are available?",
+          "a": "Current listings range from Anavar 5 and 10 up to Anavar 50, with Turinabol 10, Dianabol 25, Anadrol 25, Winstrol 25, Halotestin 10 and Proviron 25."
+        },
+        {
+          "q": "Are tablets sold in sealed packs?",
+          "a": "Yes. Oral products are supplied in sealed, labeled packaging. Our team checks the pack before dispatch."
+        },
+        {
+          "q": "Can I request a mix of oral products?",
+          "a": "Yes. Add each item to your cart and send one order request. Mix-and-match discounts apply automatically as your cart grows."
+        },
+        {
+          "q": "How do I know a tablet is in stock?",
+          "a": "Submit your request and our team verifies availability. You can also ask support about a specific item before ordering."
+        }
+      ],
+      "banner": "/images/uploads/se7-3.jpg",
+      "cardImage": "/images/uploads/se7.jpg",
       "price": 24
     },
     {
       "id": 3,
       "slug": "category-3",
-      "name": "PCT",
+      "name": ".",
       "blurb": "Post Cycle Therapy & cycle support",
-      "banner": "/images/uploads/se2-1.png",
-      "cardImage": "/images/uploads/se2.png",
+      "seoDescription": "Shop PCT products including Clomid 50 and Nolvadex 25. Compare strengths, check availability and add post-cycle support to your order request.",
+      "introTitle": "Post-Cycle Therapy & Support",
+      "intro": "The PCT category covers Clomid 50 and Nolvadex 25, two of the most requested post-cycle therapy products. These listings are grouped separately so they are easy to find alongside the main catalog.\n\nEach product page includes the compound, strength and price, and you can combine PCT items with other categories in a single order request. Our support team can confirm stock, explain the order-request workflow and help you check that your cart is complete before you send it.",
+      "faqTitle": "PCT ordering questions",
+      "faq": [
+        {
+          "q": "What is included in the PCT category?",
+          "a": "PCT currently includes Clomid 50 and Nolvadex 25. Additional support items are listed in the Performance & Support category."
+        },
+        {
+          "q": "Can PCT products be combined with a cycle order?",
+          "a": "Yes. Add PCT items to the same cart as your other products and send one request."
+        },
+        {
+          "q": "Do you provide dosing advice?",
+          "a": "We provide product and ordering information only. For medical guidance, speak with a qualified healthcare professional."
+        },
+        {
+          "q": "How quickly are PCT requests reviewed?",
+          "a": "Requests are usually reviewed within 24 business hours, Monday to Friday."
+        }
+      ],
+      "banner": "/images/uploads/se2-1.jpg",
+      "cardImage": "/images/uploads/se2.jpg",
       "price": 38
     },
     {
       "id": 4,
       "slug": "category-4",
-      "name": "HCG",
+      "name": ".",
       "blurb": "HCG products",
-      "banner": "/images/uploads/se1-5.png",
-      "cardImage": "/images/uploads/se1-4.png",
+      "seoDescription": "Shop Gonasi 5000 IU HCG with clear product details, discreet packing and a simple order-request process. Check availability with our team.",
+      "introTitle": "HCG Products",
+      "intro": "Our HCG category features Gonasi 5000 IU, supplied as a labeled kit with the strength clearly shown on the listing. HCG is kept in its own section so it is easy to locate when building an order request alongside PCT, injectables or support products.\n\nEach listing states the product format and price, and our team confirms availability before payment and dispatch. If you need help checking what is currently in stock, contact support with the product name and quantity you are considering.",
+      "faqTitle": "HCG questions",
+      "faq": [
+        {
+          "q": "What HCG product is available?",
+          "a": "The current listing is Gonasi 5000 IU. The product page shows the current price and format."
+        },
+        {
+          "q": "How should HCG be stored?",
+          "a": "Follow the storage instructions supplied with the product. If you have questions about a specific kit, contact support before ordering."
+        },
+        {
+          "q": "Can I add HCG to an existing request?",
+          "a": "Yes. Add it to your cart before sending the request, or contact support if you need to change a pending request."
+        },
+        {
+          "q": "Is HCG shipped discreetly?",
+          "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
+        }
+      ],
+      "banner": "/images/uploads/se1-5.jpg",
+      "cardImage": "/images/uploads/se1-4.jpg",
       "price": 59
     },
     {
       "id": 5,
       "slug": "category-5",
-      "name": "PEFORMANCE & SUPPORT",
+      "name": ".",
       "blurb": "Performance and support products",
-      "banner": "/images/uploads/se5-2.png",
-      "cardImage": "/images/uploads/se5.png",
+      "seoDescription": "Shop performance and support products including aromatase inhibitors, SARMs, Clenbuterol, T3 and research compounds in one organized category.",
+      "introTitle": "Performance & Support Compounds",
+      "intro": "This category brings together ancillary and support products: aromatase inhibitors such as Arimidex, Aromasin and Letrozole, cycle-support items, and a broad selection of SARMs and research compounds including MK-677, SR-9009, GW-501516 and GW-0742. It also includes Testogel, Viagra, Cialis, Clenbuterol, Cytomel T3, Lipo X and 5-Amino-1MQ.\n\nEvery listing shows the product name, strength and price so you can compare options quickly. Combine any of these items with your main order and send a single request; our team will verify stock before dispatch.",
+      "faqTitle": "Support product questions",
+      "faq": [
+        {
+          "q": "What kinds of products are in this category?",
+          "a": "Aromatase inhibitors, cycle support, SARMs, research compounds and selected performance products."
+        },
+        {
+          "q": "Can I combine support products with injectables or orals?",
+          "a": "Yes. The cart accepts products from every category, and one request covers the whole order."
+        },
+        {
+          "q": "Are SARMs listed here or in the SARMs category?",
+          "a": "Both. The SARMs category groups the core SARM listings, while this category includes additional research compounds and support items."
+        },
+        {
+          "q": "How do I check availability?",
+          "a": "Send an order request or contact support with the exact product name and quantity."
+        }
+      ],
+      "banner": "/images/uploads/se5-2.jpg",
+      "cardImage": "/images/uploads/se5.jpg",
       "price": 45
     },
     {
       "id": 6,
       "slug": "category-6",
-      "name": "HGH",
+      "name": ".",
       "blurb": "Human growth hormone products",
-      "banner": "/images/uploads/se4-1.png",
-      "cardImage": "/images/uploads/se4-3.png",
+      "seoDescription": "Compare HGH kits from Humatrope, Dynatrope, Genotrophin, Somatotropin and Hygetropin with kit sizes, prices and discreet shipping.",
+      "introTitle": "Human Growth Hormone Kits",
+      "intro": "The HGH category lists Humatrope 100 IU, Dynatrope 100 IU, Genotrophin 36 IU, Somatotropin Kit 100 IU, Hygetropin 200 IU Kit and HGH Kit 100 IU. Listings are organized by brand and kit size so you can compare formats and prices in one view.\n\nHGH products are packed carefully and shipped discreetly, with tracking sent by email where available. Our team confirms stock before sending payment and dispatch instructions, and support can help you verify the exact kit you need.",
+      "faqTitle": "HGH kit questions",
+      "faq": [
+        {
+          "q": "Which HGH kits are listed?",
+          "a": "Humatrope 100 IU, Dynatrope 100 IU, Genotrophin 36 IU, Somatotropin Kit 100 IU, Hygetropin 200 IU Kit and HGH Kit 100 IU."
+        },
+        {
+          "q": "How are HGH kits shipped?",
+          "a": "Kits are packed carefully and shipped discreetly. Tracking is emailed where available after dispatch."
+        },
+        {
+          "q": "Are the kits complete?",
+          "a": "Each listing describes the kit size and format. Contact support if you need to confirm what is included in a specific kit."
+        },
+        {
+          "q": "Can I order more than one kit?",
+          "a": "Yes. Set the quantity on the product page or add multiple kits to your cart before sending the request."
+        }
+      ],
+      "banner": "/images/uploads/se4-1.jpg",
+      "cardImage": "/images/uploads/se4-3.jpg",
       "price": 27
     },
     {
       "id": 7,
       "slug": "category-7",
-      "name": "SARMS",
+      "name": ".",
       "blurb": "SARMS & Selective Labs",
-      "banner": "/images/uploads/se6-1.png",
-      "cardImage": "/images/uploads/se6-2.png",
+      "seoDescription": "Shop SARMs including Ostarine, Ligandrol, Testolone, Andarine, S23, YK-11 and RAD-150 with clear strengths and simple order requests.",
+      "introTitle": "SARMs & Selective Research Compounds",
+      "intro": "Our SARMs section covers Ostarine (MK-2866), Ligandrol (LGD-4033), Testolone (RAD-140), Andarine (S4), S23, YK-11, RAD-150 and LGD-3033. Each listing includes the compound name, strength and price, making it easy to compare selective receptor modulators in one place.\n\nThese products are grouped separately from general support items so you can build a focused request. Add your selections to the cart, send one order request and our team will confirm availability before payment and dispatch.",
+      "faqTitle": "SARM ordering questions",
+      "faq": [
+        {
+          "q": "Which SARMs are available?",
+          "a": "Ostarine, Ligandrol, Testolone, Andarine, S23, YK-11, RAD-150 and LGD-3033 are listed in this category."
+        },
+        {
+          "q": "What do the numbers in product names mean?",
+          "a": "The number usually shows the strength or concentration of the compound, for example 10. Check the product description for details."
+        },
+        {
+          "q": "Can I combine several SARMs in one order?",
+          "a": "Yes. Add each product to your cart and send a single request. The team will review the full order."
+        },
+        {
+          "q": "Do you ship SARMs discreetly?",
+          "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
+        }
+      ],
+      "banner": "/images/uploads/se6-1.jpg",
+      "cardImage": "/images/uploads/se6-2.jpg",
       "price": 19
     }
   ],

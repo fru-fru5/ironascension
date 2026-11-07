@@ -12,6 +12,7 @@ import {
   buildSeo,
   cleanText,
   collectionPageJsonLd,
+  escapeHtml,
   escapeXml,
   faqJsonLd,
   itemListJsonLd,
@@ -52,6 +53,43 @@ const withGlobal = (items = []) => [...globalJsonLd, ...items];
 const today = new Date().toISOString().slice(0, 10);
 const merchLabel = site.merchLabel || "Merch";
 
+const noscriptStyle =
+  "max-width:760px;margin:0 auto;padding:40px 20px;font-family:sans-serif;color:#111";
+const textToParagraphs = (value) =>
+  String(value || "")
+    .split(/\n{2,}/)
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .join("");
+
+const buildNoscript = (route) => {
+  const heading = escapeHtml(route.heading || route.title || brand);
+  const description = route.description ? `<p>${escapeHtml(route.description)}</p>` : "";
+  const introTitle = route.noscriptIntroTitle
+    ? `<h2>${escapeHtml(route.noscriptIntroTitle)}</h2>`
+    : "";
+  const intro = route.noscriptIntro ? textToParagraphs(route.noscriptIntro) : "";
+  const faqTitle = escapeHtml(route.noscriptFaqTitle || "Frequently asked questions");
+  const faq =
+    Array.isArray(route.noscriptFaq) && route.noscriptFaq.length
+      ? `<h2>${faqTitle}</h2>${route.noscriptFaq
+          .map(
+            (item) => `<h3>${escapeHtml(item.q)}</h3><p>${escapeHtml(item.a)}</p>`
+          )
+          .join("")}`
+      : "";
+  const links =
+    Array.isArray(route.noscriptLinks) && route.noscriptLinks.length
+      ? `<h2>Browse</h2><ul>${route.noscriptLinks
+          .map(
+            (item) =>
+              `<li><a href="${escapeHtml(item.path)}">${escapeHtml(item.name)}</a></li>`
+          )
+          .join("")}</ul>`
+      : "";
+
+  return `<div style="${noscriptStyle}"><h1>${heading}</h1>${description}${introTitle}${intro}${faq}${links}<p><a href="/products">Browse the full catalog</a></p></div>`;
+};
+
 const productDescription = (product) => {
   const text = String(product.description || "")
     .replace(/^in stock\s*/i, "")
@@ -74,6 +112,12 @@ addRoute({
   description: homeDescription,
   image: images.hero,
   type: "website",
+  heading: brand,
+  noscriptIntro: homeDescription,
+  noscriptLinks: categories.map((category) => ({
+    name: category.name,
+    path: `/${category.slug}`,
+  })),
   jsonLd: withGlobal([
     webPageJsonLd({
       type: "WebPage",
@@ -91,6 +135,12 @@ addRoute({
   title: `Shop All Products | ${brand}`,
   description: `Browse all ${products.length} products across ${categories.length} categories at ${brand}. Search the catalog and request your order online.`,
   image: images.productsHero,
+  heading: "Shop All Products",
+  noscriptIntro: `Browse all ${products.length} products across ${categories.length} categories at ${brand}. Search the catalog and request your order online.`,
+  noscriptLinks: [
+    ...categories.map((category) => ({ name: category.name, path: `/${category.slug}` })),
+    { name: merchLabel, path: "/merch" },
+  ],
   jsonLd: withGlobal([
     collectionPageJsonLd({
       name: `Shop All Products | ${brand}`,
@@ -121,14 +171,27 @@ categories.forEach((category) => {
   const list = products.filter((product) => product.categoryId === category.id);
   const title = `${category.name} | ${brand}`;
   const description = cleanText(
-    `${category.blurb || category.name}. Shop ${category.name} products at ${brand}.`
+    category.seoDescription ||
+      `${category.blurb || category.name}. Shop ${category.name} products at ${brand}.`
   );
+  const faq = Array.isArray(category.faq)
+    ? category.faq.filter((item) => item && item.q && item.a)
+    : [];
 
   addRoute({
     path: `/${category.slug}`,
     title,
     description,
     image: category.banner || category.cardImage,
+    heading: category.name,
+    noscriptIntroTitle: category.introTitle,
+    noscriptIntro: category.intro,
+    noscriptFaqTitle: category.faqTitle,
+    noscriptFaq: faq,
+    noscriptLinks: list.map((product) => ({
+      name: product.name,
+      path: `/product/${product.id}`,
+    })),
     jsonLd: withGlobal([
       collectionPageJsonLd({
         name: title,
@@ -143,6 +206,7 @@ categories.forEach((category) => {
           path: `/product/${product.id}`,
         })),
       }),
+      ...(faq.length ? [faqJsonLd(faq)] : []),
       breadcrumbJsonLd({
         baseUrl,
         items: [
@@ -162,6 +226,12 @@ addRoute({
   title: `${merchLabel} | ${brand}`,
   description: `Shop ${brand} ${merchLabel.toLowerCase()} — training apparel and lifestyle accessories.`,
   image: images.merchHero,
+  heading: `${brand} ${merchLabel}`,
+  noscriptIntro: `Shop ${brand} ${merchLabel.toLowerCase()} — training apparel and lifestyle accessories.`,
+  noscriptLinks: merch.map((item) => ({
+    name: item.name,
+    path: `/merch/${item.id}`,
+  })),
   jsonLd: withGlobal([
     collectionPageJsonLd({
       name: `${merchLabel} | ${brand}`,
@@ -202,6 +272,12 @@ products.forEach((product) => {
     description,
     image: product.image,
     type: "product",
+    heading: product.name,
+    noscriptIntro: description,
+    noscriptLinks: [
+      ...(category ? [{ name: category.name, path: `/${category.slug}` }] : []),
+      { name: "All products", path: "/products" },
+    ],
     jsonLd: withGlobal([
       productJsonLd({
         site,
@@ -238,6 +314,9 @@ merch.forEach((item) => {
     description,
     image: item.image,
     type: "product",
+    heading: item.name,
+    noscriptIntro: description,
+    noscriptLinks: [{ name: merchLabel, path: "/merch" }],
     jsonLd: withGlobal([
       productJsonLd({
         site,
@@ -269,6 +348,8 @@ addRoute({
   description: aboutDescription,
   image: images.about,
   type: "article",
+  heading: aboutTitle,
+  noscriptIntro: aboutDescription,
   jsonLd: withGlobal([
     webPageJsonLd({
       type: "AboutPage",
@@ -296,6 +377,8 @@ addRoute({
   title: `Contact ${brand}`,
   description: `Contact ${brand} customer and order support by email, phone or live chat.`,
   image: images.hero,
+  heading: `Contact ${brand}`,
+  noscriptIntro: `Contact ${brand} customer and order support by email, phone or live chat.`,
   jsonLd: withGlobal([
     webPageJsonLd({
       type: "ContactPage",
@@ -339,6 +422,8 @@ legalPages.forEach((page) => {
     title: `${page.title} | ${brand}`,
     description: page.description,
     type: "article",
+    heading: page.title,
+    noscriptIntro: page.description,
     jsonLd: withGlobal([
       webPageJsonLd({
         name: `${page.title} | ${brand}`,
@@ -363,6 +448,9 @@ addRoute({
   title: `Your Cart | ${brand}`,
   description: "Review your order request and send it to our team.",
   noindex: true,
+  heading: "Your Cart",
+  noscriptIntro:
+    "Review your order request and send it to our team. The cart uses JavaScript, so please enable JavaScript to build and submit a request.",
   jsonLd: [],
 });
 
@@ -396,7 +484,11 @@ const renderRoute = (route) => {
   return template
     .replace(defaultTitle, "")
     .replace(defaultDescription, "")
-    .replace(marker, `${head}\n    `);
+    .replace(marker, `${head}\n    `)
+    .replace(
+      /<noscript>[\s\S]*?<\/noscript>/i,
+      `<noscript>${buildNoscript(route)}</noscript>`
+    );
 };
 
 routes.forEach((route) => {

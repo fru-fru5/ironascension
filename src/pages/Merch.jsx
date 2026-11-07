@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Breadcrumbs from "../components/Breadcrumbs.jsx";
 import PageHero from "../components/PageHero.jsx";
 import SearchBox from "../components/SearchBox.jsx";
 import ProductCard from "../components/ProductCard.jsx";
@@ -17,6 +18,16 @@ export default function Merch() {
         path="/merch"
         image={images.merchHero}
       />
+      <div className="breadcrumb-bar">
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: site.merchLabel, path: "/merch" },
+            ]}
+          />
+        </div>
+      </div>
       <PageHero
         withBg
         bg={images.merchHero}

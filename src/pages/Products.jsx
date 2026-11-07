@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../components/Breadcrumbs.jsx";
 import PageHero from "../components/PageHero.jsx";
 import SearchBox from "../components/SearchBox.jsx";
 import ProductCard from "../components/ProductCard.jsx";
@@ -21,6 +22,16 @@ export default function Products() {
         description={`Browse all ${products.length} products across ${categories.length} categories at ${site.name}. Search the catalog and request your order online.`}
         image={images.productsHero}
       />
+      <div className="breadcrumb-bar">
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Products", path: "/products" },
+            ]}
+          />
+        </div>
+      </div>
       <PageHero
         withBg
         bg={images.productsHero}

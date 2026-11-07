@@ -182,6 +182,11 @@ export default function Admin() {
         slug: `category-${id}`,
         name: "",
         blurb: "",
+        seoDescription: "",
+        introTitle: "",
+        intro: "",
+        faqTitle: "",
+        faq: [],
         banner: "",
         cardImage: "",
         price: 0,
@@ -915,7 +920,7 @@ function AboutPanel({ catalog, update, images, setImages }) {
           <TextField label="Eyebrow" value={about.faqEyebrow} onChange={(value) => setAbout("faqEyebrow", value)} />
           <TextField label="Title" value={about.faqTitle} onChange={(value) => setAbout("faqTitle", value)} />
         </div>
-        <AboutFaqField value={about.faqItems} onChange={(value) => setAbout("faqItems", value)} />
+        <FaqField value={about.faqItems} onChange={(value) => setAbout("faqItems", value)} />
       </section>
 
       <section className="admin-card">
@@ -998,7 +1003,7 @@ function AboutStepsField({ value, onChange }) {
   );
 }
 
-function AboutFaqField({ value, onChange }) {
+function FaqField({ value, onChange }) {
   const items = value || [];
   const patch = (index, key, next) =>
     onChange(items.map((item, itemIndex) => (itemIndex === index ? { ...item, [key]: next } : item)));
@@ -1190,7 +1195,22 @@ function CategoryForm({ mode, category, images, setImages, onSave, onCancel }) {
         <TextField label="Category ID" type="number" value={draft.id} onChange={(value) => set("id", value)} />
         <TextField label="Base price" type="number" value={draft.price} onChange={(value) => set("price", value)} />
         <TextField label="Blurb" value={draft.blurb} onChange={(value) => set("blurb", value)} />
+        <TextField label="Intro title" value={draft.introTitle} onChange={(value) => set("introTitle", value)} />
+        <TextAreaField
+          label="SEO description (max 160 characters)"
+          value={draft.seoDescription}
+          onChange={(value) => set("seoDescription", value)}
+          rows={2}
+        />
+        <TextAreaField
+          label="Category introduction"
+          value={draft.intro}
+          onChange={(value) => set("intro", value)}
+          rows={6}
+        />
+        <TextField label="FAQ title" value={draft.faqTitle} onChange={(value) => set("faqTitle", value)} />
       </div>
+      <FaqField value={draft.faq} onChange={(value) => set("faq", value)} />
       <ImageField
         label="Card image"
         value={draft.cardImage}

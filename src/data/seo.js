@@ -71,7 +71,9 @@ export const buildSeo = ({
     description: fullDescription,
     canonical,
     url: canonical,
-    robots: noindex ? "noindex, nofollow" : "index, follow",
+    robots: noindex
+      ? "noindex, nofollow"
+      : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     type,
     image: imageUrl,
     imageAlt: fullTitle,
@@ -183,24 +185,41 @@ export const itemListJsonLd = ({ name, baseUrl, items = [] }) => ({
   })),
 });
 
-export const productJsonLd = ({ site = {}, baseUrl = "", product, path, category }) => ({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: product.name,
-  description: cleanText(product.description, 500) || undefined,
-  image: toAbsoluteUrl(baseUrl, product.image) || undefined,
-  sku: String(product.id),
-  category: category || undefined,
-  brand: { "@type": "Brand", name: site.name || "Store" },
-  offers: {
-    "@type": "Offer",
-    url: absoluteUrl(baseUrl, path),
-    price: Number(product.price),
-    priceCurrency: site.currencyCode || "USD",
-    availability: "https://schema.org/InStock",
-    itemCondition: "https://schema.org/NewCondition",
-  },
-});
+export const productJsonLd = ({ site = {}, baseUrl = "", product, path, category }) => {
+  const canonical = absoluteUrl(baseUrl, path);
+  const validUntil = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 10);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: cleanText(product.description, 500) || undefined,
+    image: toAbsoluteUrl(baseUrl, product.image) || undefined,
+    sku: String(product.id),
+    category: category || undefined,
+    url: canonical,
+    brand: { "@type": "Brand", name: site.name || "Store" },
+    offers: {
+      "@type": "Offer",
+      url: canonical,
+      price: Number(product.price),
+      priceCurrency: site.currencyCode || "USD",
+      priceValidUntil: validUntil,
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      seller: { "@id": `${normalizeBaseUrl(baseUrl)}/#organization` },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: Number(site.returnWindowDays) || 30,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/ReturnShippingFees",
+      },
+    },
+  };
+};
 
 export const faqJsonLd = (items = []) => ({
   "@context": "https://schema.org",

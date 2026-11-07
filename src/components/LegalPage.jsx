@@ -1,15 +1,30 @@
+import { useLocation } from "react-router-dom";
+import Breadcrumbs from "./Breadcrumbs.jsx";
 import PageHero from "./PageHero.jsx";
 import Seo from "./Seo.jsx";
 import { site } from "../data/site.js";
 
 export default function LegalPage({ title, subtitle, sections, intro }) {
+  const { pathname } = useLocation();
+
   return (
     <>
       <Seo
         title={`${title} | ${site.name}`}
         description={subtitle}
+        path={pathname}
         type="article"
       />
+      <div className="breadcrumb-bar">
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: title, path: pathname },
+            ]}
+          />
+        </div>
+      </div>
       <PageHero eyebrow="Legal" title={title} text={subtitle} />
       <section className="section">
         <div className="container prose">
