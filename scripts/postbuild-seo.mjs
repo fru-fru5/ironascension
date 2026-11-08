@@ -112,6 +112,7 @@ addRoute({
   description: homeDescription,
   image: images.hero,
   type: "website",
+  preload: true,
   heading: brand,
   noscriptIntro: homeDescription,
   noscriptLinks: categories.map((category) => ({
@@ -135,6 +136,7 @@ addRoute({
   title: `Shop All Products | ${brand}`,
   description: `Browse all ${products.length} products across ${categories.length} categories at ${brand}. Search the catalog and request your order online.`,
   image: images.productsHero,
+  preload: true,
   heading: "Shop All Products",
   noscriptIntro: `Browse all ${products.length} products across ${categories.length} categories at ${brand}. Search the catalog and request your order online.`,
   noscriptLinks: [
@@ -183,6 +185,7 @@ categories.forEach((category) => {
     title,
     description,
     image: category.banner || category.cardImage,
+    preload: true,
     heading: category.name,
     noscriptIntroTitle: category.introTitle,
     noscriptIntro: category.intro,
@@ -226,6 +229,7 @@ addRoute({
   title: `${merchLabel} | ${brand}`,
   description: `Shop ${brand} ${merchLabel.toLowerCase()} — training apparel and lifestyle accessories.`,
   image: images.merchHero,
+  preload: true,
   heading: `${brand} ${merchLabel}`,
   noscriptIntro: `Shop ${brand} ${merchLabel.toLowerCase()} — training apparel and lifestyle accessories.`,
   noscriptLinks: merch.map((item) => ({
@@ -272,6 +276,7 @@ products.forEach((product) => {
     description,
     image: product.image,
     type: "product",
+    preload: true,
     heading: product.name,
     noscriptIntro: description,
     noscriptLinks: [
@@ -314,6 +319,7 @@ merch.forEach((item) => {
     description,
     image: item.image,
     type: "product",
+    preload: true,
     heading: item.name,
     noscriptIntro: description,
     noscriptLinks: [{ name: merchLabel, path: "/merch" }],
@@ -480,11 +486,15 @@ const renderRoute = (route) => {
   });
 
   const head = seoToHtml(seo);
+  const preload =
+    route.preload && seo.image
+      ? `<link rel="preload" as="image" href="${escapeHtml(seo.image)}" />`
+      : "";
 
   return template
     .replace(defaultTitle, "")
     .replace(defaultDescription, "")
-    .replace(marker, `${head}\n    `)
+    .replace(marker, `${preload ? `${preload}\n    ` : ""}${head}\n    `)
     .replace(
       /<noscript>[\s\S]*?<\/noscript>/i,
       `<noscript>${buildNoscript(route)}</noscript>`
