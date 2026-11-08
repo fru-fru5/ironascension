@@ -141,7 +141,7 @@
     {
       "id": 1,
       "slug": "category-1",
-      "name": "INJECTABLES",
+      "name": ".",
       "blurb": "PREMIUM, PURITY, PERFORMANCE",
       "seoDescription": "Shop research-grade injectables including testosterone, trenbolone, masteron and primobolan formulations with clear strengths and prices.",
       "introTitle": "Research-Grade Injectable Compounds",
@@ -165,14 +165,14 @@
           "a": "Use live chat or the contact page with the product name. Support can confirm current availability before you submit your request."
         }
       ],
-      "banner": "/images/uploads/se3-2.jpg",
-      "cardImage": "/images/uploads/se3.jpg",
+      "banner": "/images/uploads/se3-2.png",
+      "cardImage": "/images/uploads/se3.png",
       "price": 29
     },
     {
       "id": 2,
       "slug": "category-2",
-      "name": "Oral Tablets",
+      "name": ".",
       "blurb": "Oral research compounds",
       "seoDescription": "Compare oral tablets including Anavar, Turinabol, Dianabol, Anadrol, Winstrol and Proviron with clear strengths, sealed packs and simple ordering.",
       "introTitle": "Oral Tablet Catalog",
@@ -196,14 +196,14 @@
           "a": "Submit your request and our team verifies availability. You can also ask support about a specific item before ordering."
         }
       ],
-      "banner": "/images/uploads/se7-3.jpg",
-      "cardImage": "/images/uploads/se7.jpg",
+      "banner": "/images/uploads/se7-3.png",
+      "cardImage": "/images/uploads/se7.png",
       "price": 24
     },
     {
       "id": 3,
       "slug": "category-3",
-      "name": "PCT",
+      "name": ".",
       "blurb": "Post Cycle Therapy & cycle support",
       "seoDescription": "Shop PCT products including Clomid 50 and Nolvadex 25. Compare strengths, check availability and add post-cycle support to your order request.",
       "introTitle": "Post-Cycle Therapy & Support",
@@ -227,14 +227,14 @@
           "a": "Requests are usually reviewed within 24 business hours, Monday to Friday."
         }
       ],
-      "banner": "/images/uploads/se2-1.jpg",
-      "cardImage": "/images/uploads/se2.jpg",
+      "banner": "/images/uploads/se2-1.png",
+      "cardImage": "/images/uploads/se2.png",
       "price": 38
     },
     {
       "id": 4,
       "slug": "category-4",
-      "name": "HCG",
+      "name": ".",
       "blurb": "HCG products",
       "seoDescription": "Shop Gonasi 5000 IU HCG with clear product details, discreet packing and a simple order-request process. Check availability with our team.",
       "introTitle": "HCG Products",
@@ -258,14 +258,14 @@
           "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
         }
       ],
-      "banner": "/images/uploads/se1-5.jpg",
-      "cardImage": "/images/uploads/se1-4.jpg",
+      "banner": "/images/uploads/se1-5.png",
+      "cardImage": "/images/uploads/se1-4.png",
       "price": 59
     },
     {
       "id": 5,
       "slug": "category-5",
-      "name": "PEFORMANCE & SUPPORT",
+      "name": ".",
       "blurb": "Performance and support products",
       "seoDescription": "Shop performance and support products including aromatase inhibitors, SARMs, Clenbuterol, T3 and research compounds in one organized category.",
       "introTitle": "Performance & Support Compounds",
@@ -289,14 +289,14 @@
           "a": "Send an order request or contact support with the exact product name and quantity."
         }
       ],
-      "banner": "/images/uploads/se5-2.jpg",
-      "cardImage": "/images/uploads/se5.jpg",
+      "banner": "/images/uploads/se5-2.png",
+      "cardImage": "/images/uploads/se5.png",
       "price": 45
     },
     {
       "id": 6,
       "slug": "category-6",
-      "name": "HGH",
+      "name": ".",
       "blurb": "Human growth hormone products",
       "seoDescription": "Compare HGH kits from Humatrope, Dynatrope, Genotrophin, Somatotropin and Hygetropin with kit sizes, prices and discreet shipping.",
       "introTitle": "Human Growth Hormone Kits",
@@ -320,14 +320,14 @@
           "a": "Yes. Set the quantity on the product page or add multiple kits to your cart before sending the request."
         }
       ],
-      "banner": "/images/uploads/se4-1.jpg",
-      "cardImage": "/images/uploads/se4-3.jpg",
+      "banner": "/images/uploads/se4-1.png",
+      "cardImage": "/images/uploads/se4-3.png",
       "price": 27
     },
     {
       "id": 7,
       "slug": "category-7",
-      "name": "SARMS",
+      "name": ".",
       "blurb": "SARMS & Selective Labs",
       "seoDescription": "Shop SARMs including Ostarine, Ligandrol, Testolone, Andarine, S23, YK-11 and RAD-150 with clear strengths and simple order requests.",
       "introTitle": "SARMs & Selective Research Compounds",
@@ -351,8 +351,8 @@
           "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
         }
       ],
-      "banner": "/images/uploads/se6-1.jpg",
-      "cardImage": "/images/uploads/se6-2.jpg",
+      "banner": "/images/uploads/se6-1.png",
+      "cardImage": "/images/uploads/se6-2.png",
       "price": 19
     }
   ],
