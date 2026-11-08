@@ -48,6 +48,13 @@ const baseUrl = normalizeBaseUrl(
 
 const brand = site.name || "Store";
 const brandText = (value) => String(value || "").replace(/\{brand\}/g, brand);
+const isPlaceholderName = (value) => /^\.*$/.test(String(value ?? "").trim());
+const visibleName = (value) =>
+  isPlaceholderName(value) ? "" : String(value ?? "").trim();
+const categorySeoName = (category) =>
+  visibleName(category?.name) ||
+  String(category?.introTitle || category?.blurb || "").trim() ||
+  "Products";
 const globalJsonLd = siteJsonLd({ site, baseUrl, logo: images.logoHeader });
 const withGlobal = (items = []) => [...globalJsonLd, ...items];
 const today = new Date().toISOString().slice(0, 10);
@@ -99,7 +106,8 @@ const productDescription = (product) => {
 
 const homeDescription = cleanText(
   `${brand} — ${site.tagline || "Premium performance products"}. Browse ${categories
-    .map((category) => category.name)
+    .map((category) => visibleName(category.name) || category.blurb || category.introTitle)
+    .filter(Boolean)
     .join(", ")} and more.`
 );
 
@@ -116,7 +124,11 @@ addRoute({
   heading: brand,
   noscriptIntro: homeDescription,
   noscriptLinks: categories.map((category) => ({
-    name: category.name,
+    name:
+      visibleName(category.name) ||
+      category.blurb ||
+      category.introTitle ||
+      "Products",
     path: `/${category.slug}`,
   })),
   jsonLd: withGlobal([
@@ -140,7 +152,14 @@ addRoute({
   heading: "Shop All Products",
   noscriptIntro: `Browse all ${products.length} products across ${categories.length} categories at ${brand}. Search the catalog and request your order online.`,
   noscriptLinks: [
-    ...categories.map((category) => ({ name: category.name, path: `/${category.slug}` })),
+    ...categories.map((category) => ({
+      name:
+        visibleName(category.name) ||
+        category.blurb ||
+        category.introTitle ||
+        "Products",
+      path: `/${category.slug}`,
+    })),
     { name: merchLabel, path: "/merch" },
   ],
   jsonLd: withGlobal([
@@ -171,10 +190,11 @@ addRoute({
 
 categories.forEach((category) => {
   const list = products.filter((product) => product.categoryId === category.id);
-  const title = `${category.name} | ${brand}`;
+  const categoryName = categorySeoName(category);
+  const title = `${categoryName} | ${brand}`;
   const description = cleanText(
     category.seoDescription ||
-      `${category.blurb || category.name}. Shop ${category.name} products at ${brand}.`
+      `${category.blurb || categoryName}. Shop ${categoryName} products at ${brand}.`
   );
   const faq = Array.isArray(category.faq)
     ? category.faq.filter((item) => item && item.q && item.a)
@@ -186,7 +206,7 @@ categories.forEach((category) => {
     description,
     image: category.banner || category.cardImage,
     preload: true,
-    heading: category.name,
+    heading: categoryName,
     noscriptIntroTitle: category.introTitle,
     noscriptIntro: category.intro,
     noscriptFaqTitle: category.faqTitle,
@@ -202,7 +222,7 @@ categories.forEach((category) => {
         url: absoluteUrl(baseUrl, `/${category.slug}`),
       }),
       itemListJsonLd({
-        name: `${category.name} products`,
+        name: `${categoryName} products`,
         baseUrl,
         items: list.map((product) => ({
           name: product.name,
@@ -215,7 +235,7 @@ categories.forEach((category) => {
         items: [
           { name: "Home", path: "/" },
           { name: "Products", path: "/products" },
-          { name: category.name, path: `/${category.slug}` },
+          { name: categoryName, path: `/${category.slug}` },
         ],
       }),
     ]),
@@ -266,6 +286,7 @@ const getCategory = (id) => categories.find((category) => category.id === id);
 
 products.forEach((product) => {
   const category = getCategory(product.categoryId);
+  const categoryName = category ? categorySeoName(category) : "";
   const routePath = `/product/${product.id}`;
   const title = `${product.name} | ${brand}`;
   const description = productDescription(product);
@@ -280,7 +301,7 @@ products.forEach((product) => {
     heading: product.name,
     noscriptIntro: description,
     noscriptLinks: [
-      ...(category ? [{ name: category.name, path: `/${category.slug}` }] : []),
+      ...(categoryName ? [{ name: categoryName, path: `/${category.slug}` }] : []),
       { name: "All products", path: "/products" },
     ],
     jsonLd: withGlobal([
@@ -289,15 +310,15 @@ products.forEach((product) => {
         baseUrl,
         product,
         path: routePath,
-        category: category?.name,
+        category: categoryName || undefined,
       }),
       breadcrumbJsonLd({
         baseUrl,
         items: [
           { name: "Home", path: "/" },
           { name: "Products", path: "/products" },
-          ...(category
-            ? [{ name: category.name, path: `/${category.slug}` }]
+          ...(categoryName
+            ? [{ name: categoryName, path: `/${category.slug}` }]
             : []),
           { name: product.name, path: routePath },
         ],

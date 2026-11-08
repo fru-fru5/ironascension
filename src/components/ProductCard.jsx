@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ImagePlaceholder from "./ImagePlaceholder.jsx";
 import { useCart } from "../context/CartContext.jsx";
-import { getCategory, site } from "../data/site.js";
+import { getCategory, site, visibleName } from "../data/site.js";
 
 export default function ProductCard({ product }) {
   const { addItem } = useCart();
@@ -15,15 +15,11 @@ export default function ProductCard({ product }) {
         <ImagePlaceholder src={product.image} alt={product.name} label="Product image" ratio="4 / 5" />
       </Link>
       <div className="product-body">
-        <p className="card-eyebrow">
-          {isMerch ? (
-            site.merchLabel
-          ) : (
-            <>
-              <span className="uc">Category {cat.id}</span> · {cat.name}
-            </>
-          )}
-        </p>
+        {(isMerch || visibleName(cat?.name)) && (
+          <p className="card-eyebrow">
+            {isMerch ? site.merchLabel : visibleName(cat.name)}
+          </p>
+        )}
         <h3>{product.name}</h3>
         {isMerch && <p className="muted">{product.description}</p>}
         <p className="price">

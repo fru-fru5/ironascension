@@ -5,7 +5,7 @@ import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import Seo from "../components/Seo.jsx";
 import { useCart } from "../context/CartContext.jsx";
-import { getCategory, merch, products, site } from "../data/site.js";
+import { getCategory, merch, products, site, visibleName } from "../data/site.js";
 import NotFound from "./NotFound.jsx";
 
 const summarize = (value) =>
@@ -23,9 +23,10 @@ export default function ProductDetail() {
   if (!product) return <NotFound />;
   const isMerch = product.kind === "merch";
   const cat = isMerch ? null : getCategory(product.categoryId);
+  const catName = cat ? visibleName(cat.name) : "";
   const path = isMerch ? `/merch/${product.id}` : `/product/${product.id}`;
   const backPath = isMerch ? "/merch" : cat ? `/${cat.slug}` : "/products";
-  const backLabel = isMerch ? site.merchLabel : cat ? cat.name : "Products";
+  const backLabel = isMerch ? site.merchLabel : catName || "Products";
 
   const sameGroup = isMerch
     ? merch.filter((item) => item.id !== product.id)
@@ -43,7 +44,7 @@ export default function ProductDetail() {
     : [
         { name: "Home", path: "/" },
         { name: "Products", path: "/products" },
-        ...(cat ? [{ name: cat.name, path: `/${cat.slug}` }] : []),
+        ...(catName ? [{ name: catName, path: `/${cat.slug}` }] : []),
         { name: product.name, path },
       ];
 
@@ -73,9 +74,9 @@ export default function ProductDetail() {
               priority
             />
             <div>
-              <p className="eyebrow">
-                {isMerch ? site.merchLabel : cat ? `Category ${cat.id} · ${cat.name}` : "Product"}
-              </p>
+              {(isMerch ? site.merchLabel : catName) && (
+                <p className="eyebrow">{isMerch ? site.merchLabel : catName}</p>
+              )}
               <h1 className="h1-plain">{product.name}</h1>
               <p className="price price-lg">
                 {site.currency}

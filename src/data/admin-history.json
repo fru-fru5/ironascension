@@ -1,5 +1,1028 @@
 [
   {
+    "id": "mw7i4w2v-ud7g",
+    "at": "2026-11-08T07:19:29.383Z",
+    "summary": "Catalog update",
+    "catalog": {
+      "site": {
+        "name": "IRON ASCENSION",
+        "tagline": "Strength. Science. Discipline.",
+        "email": "contact@ironascensions.com",
+        "whatsappNumber": "16892827251",
+        "phone": "+1(689) 282-7251",
+        "hours": "Mon-Fri, 8:00 AM - 6:00 PM EST",
+        "currency": "$",
+        "returnWindowDays": 30,
+        "effectiveDate": "November 7, 2026",
+        "merchLabel": "Merch"
+      },
+      "announcements": [
+        "Pay with Bitcoin and save an extra 5%",
+        "Spend $100+ and get a free Cap"
+      ],
+      "freeGift": {
+        "threshold": 100,
+        "item": "Cap"
+      },
+      "ageGate": {
+        "enabled": true,
+        "minAge": 21,
+        "message": "'s catalog includes products intended for adults only."
+      },
+      "images": {
+        "logoHeader": "/images/logo/logo-header.png",
+        "logoFooter": "/images/logo/logo-footer.png",
+        "hero": "/images/gym/gym-barbell-abs-male.jpg",
+        "brand": "/images/gym/gym-dumbbell-male.jpg",
+        "lineup": "/images/categories/merch-card.jpg",
+        "lifestyle": "/images/gym/gym-dark-mood-male.jpg",
+        "merchTeaser": "/images/gym/gym-female-iron-tank.jpg",
+        "productsHero": "/images/gym/gym-male-phone.jpg",
+        "merchHero": "/images/gym/gym-female-drinking.jpg",
+        "about": "/images/gym/gym-editorial-female.jpg",
+        "aboutLineup": "/images/gym/gym-male-locker-back.jpg",
+        "aboutCta": "/images/gym/gym-barbell-abs-male.jpg"
+      },
+      "about": {
+        "heroEyebrow": "The Brand",
+        "heroTitle": "About {brand}",
+        "heroText": "Considered design. Honest materials. Built to be worn hard.",
+        "introTitle": "More than a storefront.",
+        "introBody": "At Iron Ascension, we curate elite-level performance solutions and high-tier athletic gear designed for serious bodybuilders, athletes, and fitness professionals. Built on a foundation of strict laboratory standards and a premium pharmaceutical aesthetic, our platform serves as a complete destination for both advanced compound protocols and official brand merchandise.",
+        "catalogEyebrow": "Catalog",
+        "catalogTitle": "Our Catalog & Product Divisions",
+        "catalogText": "We maintain distinct divisions, plus a dedicated merch line.",
+        "merchTitle": "{brand} Merch",
+        "merchText": "A dedicated line of premium athletic apparel and training gear.",
+        "processEyebrow": "The Order-Request System",
+        "processTitle": "Discretion. Verification. Confirmation.",
+        "processText": "To keep every order accurate and discreet, {brand} uses an Order-Request Cart Workflow rather than direct online payment processing.",
+        "processSteps": [
+          {
+            "title": "Select & Reserve",
+            "text": "Browse the catalog or merch section, choose your items, and submit an order request through the reservation cart."
+          },
+          {
+            "title": "Stock Verification",
+            "text": "Our team reviews your request, verifies stock availability for your items, and reserves your allocation."
+          },
+          {
+            "title": "Fulfillment Confirmation",
+            "text": "You receive direct, secure confirmation details with your order breakdown and simple payment steps to start dispatch."
+          }
+        ],
+        "qualityEyebrow": "Quality Assurance & Transparency",
+        "qualityTitle": "Checked, every batch.",
+        "qualityBody": "Every compound listed on Iron Ascension is subject to high-performance liquid chromatography (HPLC) quantitative testing and purity verification. Whether you are ordering cycle support or official Iron Ascension gear, we prioritize total transparency and premium execution.",
+        "faqEyebrow": "FAQ",
+        "faqTitle": "Frequently Asked Questions",
+        "faqItems": [
+          {
+            "q": "How does ordering work?",
+            "a": "We use an order-request cart instead of instant payment. Choose your items, send your request, and our team confirms availability and sends payment and dispatch instructions."
+          },
+          {
+            "q": "Is my card charged when I submit a request?",
+            "a": "No. A request is only a pending reservation. You can change or cancel it before you receive payment and dispatch confirmation."
+          },
+          {
+            "q": "What is your return policy?",
+            "a": "Unworn, unwashed items in original packaging with tags can be exchanged or returned for store credit within 30 days of delivery. See the Shipping & Returns page."
+          },
+          {
+            "q": "How long does shipping take?",
+            "a": "Requests are usually reviewed within 24 business hours (Monday to Friday). Once your parcel ships, you receive tracking details by email where available."
+          },
+          {
+            "q": "Is there an age requirement?",
+            "a": "Yes. You must be 18 or older, or the age of majority where you live, to submit an order request."
+          },
+          {
+            "q": "How do I get a discount?",
+            "a": "Mix & Match discounts apply automatically as your cart grows. Spend $100 or more and get a free cap. New customers can use a welcome code, and paying with Bitcoin gives an extra discount. They stack up to a combined cap."
+          },
+          {
+            "q": "What payment methods do you accept?",
+            "a": "Bitcoin, Cashapp, Apple Pay, Zelle, Chime and PayPal. Pick your preferred method in the cart and we confirm it with you directly."
+          }
+        ],
+        "ctaEyebrow": "Get In Touch",
+        "ctaTitle": "Questions about your order?",
+        "ctaText": "Our customer support team is available to assist with order requests or availability.",
+        "ctaPrimaryLabel": "Contact Support",
+        "ctaSecondaryLabel": "Browse Catalog"
+      },
+      "discounts": {
+        "volumeTiers": [
+          {
+            "minItems": 8,
+            "percent": 15
+          },
+          {
+            "minItems": 5,
+            "percent": 10
+          },
+          {
+            "minItems": 3,
+            "percent": 5
+          }
+        ],
+        "welcomeCode": {
+          "code": "WELCOME10",
+          "percent": 10
+        },
+        "bitcoinPercent": 5,
+        "maxCombinedPercent": 25
+      },
+      "paymentMethods": [
+        "Bitcoin",
+        "Apple Pay",
+        "Zelle",
+        "Chime",
+        "PayPal"
+      ],
+      "categories": [
+        {
+          "id": 1,
+          "slug": "category-1",
+          "name": ".",
+          "blurb": "PREMIUM, PURITY, PERFORMANCE",
+          "seoDescription": "Shop research-grade injectables including testosterone, trenbolone, masteron and primobolan formulations with clear strengths and prices.",
+          "introTitle": "Research-Grade Injectable Compounds",
+          "intro": "The Iron Ascension injectables catalog brings together testosterone, nandrolone, trenbolone, masteron, primobolan and blend formulations in one place. Every listing shows the compound name, concentration and current catalog price, so you can compare short esters, long esters and high-concentration options without guessing.\n\nWe focus on clear product labeling, consistent batch presentation and discreet packing on every order request. Whether you are building a foundational testosterone protocol or restocking a specific compound, this collection covers the most requested injectable formats. Our team confirms availability before payment and dispatch instructions are sent.",
+          "faqTitle": "Injectable ordering questions",
+          "faq": [
+            {
+              "q": "How are injectable products shipped?",
+              "a": "Order requests are reviewed within 24 business hours, then packed discreetly. Tracking details are sent by email after your parcel is handed to the carrier."
+            },
+            {
+              "q": "Can I mix products from different categories in one request?",
+              "a": "Yes. Build your cart across injectables, orals, PCT, HGH and support products, then send a single order request."
+            },
+            {
+              "q": "Are the listed concentrations accurate?",
+              "a": "Each product name includes its concentration, such as 250 or 300. Our team verifies the item and batch before confirming your request."
+            },
+            {
+              "q": "How do I ask about stock?",
+              "a": "Use live chat or the contact page with the product name. Support can confirm current availability before you submit your request."
+            }
+          ],
+          "banner": "/images/uploads/se3-2.jpg",
+          "cardImage": "/images/uploads/se3.jpg",
+          "price": 29
+        },
+        {
+          "id": 2,
+          "slug": "category-2",
+          "name": ".",
+          "blurb": "Oral research compounds",
+          "seoDescription": "Compare oral tablets including Anavar, Turinabol, Dianabol, Anadrol, Winstrol and Proviron with clear strengths, sealed packs and simple ordering.",
+          "introTitle": "Oral Tablet Catalog",
+          "intro": "Our oral tablet range covers Anavar, Turinabol, Dianabol, Anadrol, Winstrol, Halotestin and Proviron across multiple strengths. Tablets are presented in clearly labeled, sealed packs, and every listing shows the compound, dose per tablet and catalog price.\n\nThis makes it straightforward to compare short-acting oral options for a cycle or to restock a specific dose. We keep the ordering process simple: add what you need to the cart, send one order request, and our team confirms stock before sending payment details. If you are unsure which strength matches your plan, support can point you to the right listing.",
+          "faqTitle": "Oral tablet questions",
+          "faq": [
+            {
+              "q": "What strengths are available?",
+              "a": "Current listings range from Anavar 5 and 10 up to Anavar 50, with Turinabol 10, Dianabol 25, Anadrol 25, Winstrol 25, Halotestin 10 and Proviron 25."
+            },
+            {
+              "q": "Are tablets sold in sealed packs?",
+              "a": "Yes. Oral products are supplied in sealed, labeled packaging. Our team checks the pack before dispatch."
+            },
+            {
+              "q": "Can I request a mix of oral products?",
+              "a": "Yes. Add each item to your cart and send one order request. Mix-and-match discounts apply automatically as your cart grows."
+            },
+            {
+              "q": "How do I know a tablet is in stock?",
+              "a": "Submit your request and our team verifies availability. You can also ask support about a specific item before ordering."
+            }
+          ],
+          "banner": "/images/uploads/se7-3.jpg",
+          "cardImage": "/images/uploads/se7.jpg",
+          "price": 24
+        },
+        {
+          "id": 3,
+          "slug": "category-3",
+          "name": ".",
+          "blurb": "Post Cycle Therapy & cycle support",
+          "seoDescription": "Shop PCT products including Clomid 50 and Nolvadex 25. Compare strengths, check availability and add post-cycle support to your order request.",
+          "introTitle": "Post-Cycle Therapy & Support",
+          "intro": "The PCT category covers Clomid 50 and Nolvadex 25, two of the most requested post-cycle therapy products. These listings are grouped separately so they are easy to find alongside the main catalog.\n\nEach product page includes the compound, strength and price, and you can combine PCT items with other categories in a single order request. Our support team can confirm stock, explain the order-request workflow and help you check that your cart is complete before you send it.",
+          "faqTitle": "PCT ordering questions",
+          "faq": [
+            {
+              "q": "What is included in the PCT category?",
+              "a": "PCT currently includes Clomid 50 and Nolvadex 25. Additional support items are listed in the Performance & Support category."
+            },
+            {
+              "q": "Can PCT products be combined with a cycle order?",
+              "a": "Yes. Add PCT items to the same cart as your other products and send one request."
+            },
+            {
+              "q": "Do you provide dosing advice?",
+              "a": "We provide product and ordering information only. For medical guidance, speak with a qualified healthcare professional."
+            },
+            {
+              "q": "How quickly are PCT requests reviewed?",
+              "a": "Requests are usually reviewed within 24 business hours, Monday to Friday."
+            }
+          ],
+          "banner": "/images/uploads/se2-1.jpg",
+          "cardImage": "/images/uploads/se2.jpg",
+          "price": 38
+        },
+        {
+          "id": 4,
+          "slug": "category-4",
+          "name": ".",
+          "blurb": "HCG products",
+          "seoDescription": "Shop Gonasi 5000 IU HCG with clear product details, discreet packing and a simple order-request process. Check availability with our team.",
+          "introTitle": "HCG Products",
+          "intro": "Our HCG category features Gonasi 5000 IU, supplied as a labeled kit with the strength clearly shown on the listing. HCG is kept in its own section so it is easy to locate when building an order request alongside PCT, injectables or support products.\n\nEach listing states the product format and price, and our team confirms availability before payment and dispatch. If you need help checking what is currently in stock, contact support with the product name and quantity you are considering.",
+          "faqTitle": "HCG questions",
+          "faq": [
+            {
+              "q": "What HCG product is available?",
+              "a": "The current listing is Gonasi 5000 IU. The product page shows the current price and format."
+            },
+            {
+              "q": "How should HCG be stored?",
+              "a": "Follow the storage instructions supplied with the product. If you have questions about a specific kit, contact support before ordering."
+            },
+            {
+              "q": "Can I add HCG to an existing request?",
+              "a": "Yes. Add it to your cart before sending the request, or contact support if you need to change a pending request."
+            },
+            {
+              "q": "Is HCG shipped discreetly?",
+              "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
+            }
+          ],
+          "banner": "/images/uploads/se1-5.jpg",
+          "cardImage": "/images/uploads/se1-4.jpg",
+          "price": 59
+        },
+        {
+          "id": 5,
+          "slug": "category-5",
+          "name": ".",
+          "blurb": "Performance and support products",
+          "seoDescription": "Shop performance and support products including aromatase inhibitors, SARMs, Clenbuterol, T3 and research compounds in one organized category.",
+          "introTitle": "Performance & Support Compounds",
+          "intro": "This category brings together ancillary and support products: aromatase inhibitors such as Arimidex, Aromasin and Letrozole, cycle-support items, and a broad selection of SARMs and research compounds including MK-677, SR-9009, GW-501516 and GW-0742. It also includes Testogel, Viagra, Cialis, Clenbuterol, Cytomel T3, Lipo X and 5-Amino-1MQ.\n\nEvery listing shows the product name, strength and price so you can compare options quickly. Combine any of these items with your main order and send a single request; our team will verify stock before dispatch.",
+          "faqTitle": "Support product questions",
+          "faq": [
+            {
+              "q": "What kinds of products are in this category?",
+              "a": "Aromatase inhibitors, cycle support, SARMs, research compounds and selected performance products."
+            },
+            {
+              "q": "Can I combine support products with injectables or orals?",
+              "a": "Yes. The cart accepts products from every category, and one request covers the whole order."
+            },
+            {
+              "q": "Are SARMs listed here or in the SARMs category?",
+              "a": "Both. The SARMs category groups the core SARM listings, while this category includes additional research compounds and support items."
+            },
+            {
+              "q": "How do I check availability?",
+              "a": "Send an order request or contact support with the exact product name and quantity."
+            }
+          ],
+          "banner": "/images/uploads/se5-2.jpg",
+          "cardImage": "/images/uploads/se5.jpg",
+          "price": 45
+        },
+        {
+          "id": 6,
+          "slug": "category-6",
+          "name": ".",
+          "blurb": "Human growth hormone products",
+          "seoDescription": "Compare HGH kits from Humatrope, Dynatrope, Genotrophin, Somatotropin and Hygetropin with kit sizes, prices and discreet shipping.",
+          "introTitle": "Human Growth Hormone Kits",
+          "intro": "The HGH category lists Humatrope 100 IU, Dynatrope 100 IU, Genotrophin 36 IU, Somatotropin Kit 100 IU, Hygetropin 200 IU Kit and HGH Kit 100 IU. Listings are organized by brand and kit size so you can compare formats and prices in one view.\n\nHGH products are packed carefully and shipped discreetly, with tracking sent by email where available. Our team confirms stock before sending payment and dispatch instructions, and support can help you verify the exact kit you need.",
+          "faqTitle": "HGH kit questions",
+          "faq": [
+            {
+              "q": "Which HGH kits are listed?",
+              "a": "Humatrope 100 IU, Dynatrope 100 IU, Genotrophin 36 IU, Somatotropin Kit 100 IU, Hygetropin 200 IU Kit and HGH Kit 100 IU."
+            },
+            {
+              "q": "How are HGH kits shipped?",
+              "a": "Kits are packed carefully and shipped discreetly. Tracking is emailed where available after dispatch."
+            },
+            {
+              "q": "Are the kits complete?",
+              "a": "Each listing describes the kit size and format. Contact support if you need to confirm what is included in a specific kit."
+            },
+            {
+              "q": "Can I order more than one kit?",
+              "a": "Yes. Set the quantity on the product page or add multiple kits to your cart before sending the request."
+            }
+          ],
+          "banner": "/images/uploads/se4-1.jpg",
+          "cardImage": "/images/uploads/se4-3.jpg",
+          "price": 27
+        },
+        {
+          "id": 7,
+          "slug": "category-7",
+          "name": ".",
+          "blurb": "SARMS & Selective Labs",
+          "seoDescription": "Shop SARMs including Ostarine, Ligandrol, Testolone, Andarine, S23, YK-11 and RAD-150 with clear strengths and simple order requests.",
+          "introTitle": "SARMs & Selective Research Compounds",
+          "intro": "Our SARMs section covers Ostarine (MK-2866), Ligandrol (LGD-4033), Testolone (RAD-140), Andarine (S4), S23, YK-11, RAD-150 and LGD-3033. Each listing includes the compound name, strength and price, making it easy to compare selective receptor modulators in one place.\n\nThese products are grouped separately from general support items so you can build a focused request. Add your selections to the cart, send one order request and our team will confirm availability before payment and dispatch.",
+          "faqTitle": "SARM ordering questions",
+          "faq": [
+            {
+              "q": "Which SARMs are available?",
+              "a": "Ostarine, Ligandrol, Testolone, Andarine, S23, YK-11, RAD-150 and LGD-3033 are listed in this category."
+            },
+            {
+              "q": "What do the numbers in product names mean?",
+              "a": "The number usually shows the strength or concentration of the compound, for example 10. Check the product description for details."
+            },
+            {
+              "q": "Can I combine several SARMs in one order?",
+              "a": "Yes. Add each product to your cart and send a single request. The team will review the full order."
+            },
+            {
+              "q": "Do you ship SARMs discreetly?",
+              "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
+            }
+          ],
+          "banner": "/images/uploads/se6-1.jpg",
+          "cardImage": "/images/uploads/se6-2.jpg",
+          "price": 19
+        }
+      ],
+      "products": [
+        {
+          "id": "1-1",
+          "categoryId": 1,
+          "name": "Test Propionate 100",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Test Propionate 100 is a fast-acting injectable testosterone ester engineered for rapid systemic absorption and immediate anabolic support. Designed for short-cycle application, cutting phases, and precise hormonal titration, it delivers quick increases in serum testosterone levels with minimal fluid retention.",
+          "image": "/images/clothproduct/pro1.jpg"
+        },
+        {
+          "id": "1-2",
+          "categoryId": 1,
+          "name": "Testosterone Enanthate 250",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Testosterone Enanthate 250 is a long-acting injectable testosterone ester engineered for sustained systemic release and reliable anabolic support. Designed for foundational bulking phases, baseline testosterone replacement, and consistent muscle mass retention, it delivers stable hormone levels with a convenient dosing schedule.",
+          "image": "/images/clothproduct/pro2.jpg"
+        },
+        {
+          "id": "1-3",
+          "categoryId": 1,
+          "name": "Testosterone Enanthate 300",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Testosterone Enanthate 300 provides a higher-concentration, long-acting testosterone formula designed to deliver maximum anabolic potency per milliliter. Engineered for advanced athletic protocols, mass-building cycles, and sustained hormone maintenance, it enables efficient dosing while promoting rapid gains in strength and muscle volume.",
+          "image": "/images/clothproduct/pro3.jpg"
+        },
+        {
+          "id": "1-4",
+          "categoryId": 1,
+          "name": "Testosterone Enanthate 500",
+          "price": 65,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Testosterone Enanthate 500 is an ultra-high-concentration anabolic formula engineered for maximum efficiency and heavy-duty mass protocols. Designed for experienced users seeking high-dosage testosterone support with minimal liquid volume, it provides standard sustained-release kinetics in an exceptionally concentrated delivery system.",
+          "image": "/images/clothproduct/pro4.jpg"
+        },
+        {
+          "id": "1-5",
+          "categoryId": 1,
+          "name": "Testosterone Cypionate 250",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Testosterone Cypionate 250 is a classic long-acting anabolic compound designed for consistent hormone release and dependable athletic baseline support. Widely utilized in both foundational mass-building cycles and hormone replacement protocols, it promotes steady, sustained improvements in power, muscle preservation, and systemic recovery.",
+          "image": "/images/clothproduct/pro5.jpg"
+        },
+        {
+          "id": "1-6",
+          "categoryId": 1,
+          "name": "Sustanon 250",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Sustanon 250 is a multi-ester testosterone blend engineered to deliver both immediate release and long-lasting anabolic activity. Combining short, medium, and long-chain esters, it provides a rapid onset of action while maintaining steady, elevated blood plasma levels over extended periods for maximum performance and mass development.",
+          "image": "/images/clothproduct/pro6.jpg"
+        },
+        {
+          "id": "1-7",
+          "categoryId": 1,
+          "name": "T400",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension T400 is a high-potency testosterone blend designed to maximize anabolic impact while minimizing injection volume. Formulated with a synergistic combination of fast and slow-acting esters, it delivers an initial burst of active compound followed by sustained, long-term release for high-volume cycles and massive strength development.",
+          "image": "/images/clothproduct/pro7.jpg"
+        },
+        {
+          "id": "1-8",
+          "categoryId": 1,
+          "name": "Deca 300",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Deca 300 (Nandrolone Decanoate) is a classic, slow-acting anabolic compound engineered for heavy mass construction, joint relief, and sustained muscular recovery. Known for its high anabolic-to-androgenic ratio, it facilitates substantial lean muscle growth with minimal androgenic side effects and reduced strain on connective tissues.",
+          "image": "/images/clothproduct/pro8.jpg"
+        },
+        {
+          "id": "1-9",
+          "categoryId": 1,
+          "name": "NPP 150",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension NPP 150 (Nandrolone Phenylpropionate) is a short-acting nandrolone ester designed for rapid systemic clearance and precise cycle management. Offering all the muscular hypertrophy and joint-supportive benefits of traditional nandrolone, its shorter ester profile allows for faster onset of action and easier side effect control.",
+          "image": "/images/clothproduct/pro9.jpg"
+        },
+        {
+          "id": "1-10",
+          "categoryId": 1,
+          "name": "Equipoise (EQ) 300",
+          "price": 60,
+          "kind": "product",
+          "description": ".In Stock\nIron Ascension Equipoise (EQ) 300 (Boldenone Undecylenate) is a long-acting anabolic compound engineered for steady, steady-state lean tissue expansion and vascularity. Renowned for boosting red blood cell production and appetite without extreme water retention, it provides a slow, high-quality build in strength and endurance over extended cycles.",
+          "image": "/images/clothproduct/pro10.jpg"
+        },
+        {
+          "id": "1-11",
+          "categoryId": 1,
+          "name": "Trenbolone Enanthate 200",
+          "price": 70,
+          "kind": "product",
+          "description": "Iron Ascension Trenbolone Enanthate 200 is a potent, long-acting anabolic compound engineered for powerful mass gains, radical strength increases, and high-level conditioning. Designed for long-cycle efficiency, it delivers high binding affinity to androgen receptors without converting to estrogen, making it an essential tool for advanced recomposition and cutting phases.",
+          "image": "/images/clothproduct/pro11.jpg"
+        },
+        {
+          "id": "1-12",
+          "categoryId": 1,
+          "name": "Trenbolone Acetate 100",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Trenbolone Acetate 100 is a fast-acting, high-potency anabolic compound designed for rapid strength delivery, extreme muscle hardness, and accelerated fat loss. Its short-ester profile allows for quick systemic absorption, precise dose control, and immediate physical transformation during prep and recomposition phases.",
+          "image": "/images/clothproduct/pro12.jpg"
+        },
+        {
+          "id": "1-13",
+          "categoryId": 1,
+          "name": "TNT Blend 400",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension TNT Blend 400 is a heavy-duty combination formula pairing Testosterone Enanthate and Trenbolone Enanthate for maximum anabolic synergy. Engineered for advanced mass-building and recomposition protocols, this dual-compound blend delivers high-potency force, rapid recovery, and dense muscle tissue development in a single streamlined administration.",
+          "image": "/images/clothproduct/pro13.jpg"
+        },
+        {
+          "id": "1-14",
+          "categoryId": 1,
+          "name": "Masteron Propionate 150",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Masteron Propionate 150 (Drostanolone Propionate) is a fast-acting, anti-estrogenic anabolic agent engineered for pre-contest conditioning and peak muscle definition. Designed to deliver a hard, grainy physical appearance, it works efficiently to eliminate subcutaneous water while protecting lean tissue during high-deficit cutting phases.",
+          "image": "/images/clothproduct/pro14.jpg"
+        },
+        {
+          "id": "1-15",
+          "categoryId": 1,
+          "name": "Masteron Enanthate 200",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Masteron Enanthate 200 (Drostanolone Enanthate) is a long-acting anabolic compound engineered for sustained muscle hardening, anti-estrogenic support, and physique refinement. Designed for longer cutting cycles, it delivers steady plasma levels to strip away residual fluid and enhance muscle density with fewer required injections.",
+          "image": "/images/clothproduct/pro15.jpg"
+        },
+        {
+          "id": "1-16",
+          "categoryId": 1,
+          "name": "Primobolan 100",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Primobolan 100 (Methenolone Enanthate) is a premium, mild anabolic agent engineered for high-quality lean muscle preservation and clean conditioning. Featuring an exceptionally low androgenic profile and zero estrogenic activity, it is ideal for cutting cycles, protecting lean mass in calorie deficits, and building solid, dry tissue without fluid retention.",
+          "image": "/images/clothproduct/pro16.jpg"
+        },
+        {
+          "id": "1-17",
+          "categoryId": 1,
+          "name": "Primobolan 200",
+          "price": 120,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Primobolan 200 (Methenolone Enanthate) is a double-concentration formulation of our premium, clean anabolic agent. Engineered for high-dose protocol efficiency with lower liquid volume, it provides superior lean tissue preservation, zero estrogenic activity, and steady muscular conditioning for advanced performance cutting phases.",
+          "image": "/images/clothproduct/pro17.jpg"
+        },
+        {
+          "id": "1-18",
+          "categoryId": 1,
+          "name": "Winstrol 50 (Injectable)",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Winstrol 50 (Stanozolol) is a potent injectable anabolic compound engineered for maximum physical hardness, vascularity, and explosive speed output. Preferred over oral delivery to avoid primary liver breakdown, it drives rapid fluid clearance and enhances free testosterone levels by binding strongly to Sex Hormone Binding Globulin (SHBG).",
+          "image": "/images/clothproduct/pro18.jpg"
+        },
+        {
+          "id": "1-19",
+          "categoryId": 1,
+          "name": "Superdrol 40 (Injectable) $81",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Superdrol 40 (Methasterone) is an ultra-potent injectable formulation engineered for extreme muscle density, dry mass expansion, and rapid strength increases. Designed to bypass initial hepatic metabolism associated with oral administration, it delivers immediate, unadulterated anabolic activity without estrogenic conversion.",
+          "image": "/images/clothproduct/pro19.jpg"
+        },
+        {
+          "id": "1-20",
+          "categoryId": 1,
+          "name": "Testosterone Suspension 100",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Testosterone Suspension 100 is an unesterified, micro-crystallized aqueous testosterone formula designed for rapid hormonal release and immediate physiological impact. Unlike esterified compounds, pure testosterone suspension bypasses delayed metabolic release, delivering rapid increases in circulating androgen levels to promote immediate strength capacity, aggressive training output, and powerful protein synthesis without extended clear times.",
+          "image": "/images/clothproduct/pro20.jpg"
+        },
+        {
+          "id": "2-1",
+          "categoryId": 2,
+          "name": "Anavar 5",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Anavar 5 (Oxandrolone) is a low-dose, high-precision oral anabolic agent designed for clean lean muscle preservation, steady strength development, and enhanced fat loss support. Featuring exceptional tolerability and zero estrogenic conversion, it is ideal for fine-tuned dosing protocols, metabolic cutting cycles, and micro-dosing strategies.",
+          "image": "/images/clothproduct/pro21.jpg"
+        },
+        {
+          "id": "2-2",
+          "categoryId": 2,
+          "name": "Anavar 10",
+          "price": 50,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Anavar 10 (Oxandrolone) is a high-purity oral anabolic agent designed for clean muscle preservation, dry strength gains, and body recomposition support. Known for its exceptional safety profile and zero estrogenic conversion, it delivers precise dosing for targeted fat loss, vascularity, and lean mass retention without water retention.",
+          "image": "/images/clothproduct/pro22.jpg"
+        },
+        {
+          "id": "2-3",
+          "categoryId": 2,
+          "name": "Turinabol 10",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Turinabol 10 (Chlorodehydromethyltestosterone) is a specialized oral anabolic compound designed for steady, high-quality lean muscle gains, endurance enhancement, and dry strength development. Formulated without aromatizing activity, it provides steady performance elevation and improved recovery without subcutaneous water retention or estrogenic side effects.",
+          "image": "/images/clothproduct/pro23.jpg"
+        },
+        {
+          "id": "2-4",
+          "categoryId": 2,
+          "name": "Superdrol 10",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Superdrol 10 (Methasterone) is an ultra-potent oral anabolic agent engineered for rapid mass accumulation, severe strength output, and intense muscular fullness. Recognized as one of the most powerful oral compounds available, it delivers immediate anabolic action without converting to estrogen, driving dense muscle gains during short, focused power cycles.",
+          "image": "/images/clothproduct/pro24.jpg"
+        },
+        {
+          "id": "2-5",
+          "categoryId": 2,
+          "name": "Dianabol 25",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Dianabol 25 (Methandrostenolone) is a fast-acting oral anabolic agent engineered for rapid, explosive mass gains, enhanced protein synthesis, and extreme strength increases. Regarded as a classic, heavy-duty kickstarter for bulking protocols, it creates a powerful anabolic environment that rapidly drives muscular volume and glycogen storage.",
+          "image": "/images/clothproduct/pro25.jpg"
+        },
+        {
+          "id": "2-6",
+          "categoryId": 2,
+          "name": "Anadrol 25",
+          "price": 86,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Anadrol 25 (Oxymetholone) is a potent oral anabolic agent engineered for rapid mass expansion, extreme muscle fullness, and dramatic power gains. Formulated in an adaptable 25 mg dose, it allows for controlled administration and precise titration while driving high-level nitrogen retention, red blood cell production, and rapid strength increases during heavy bulking phases.",
+          "image": "/images/clothproduct/pro26.jpg"
+        },
+        {
+          "id": "2-7",
+          "categoryId": 2,
+          "name": "Winstrol 25",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Winstrol 25 (Stanozolol) is an oral anabolic agent engineered for physical hardness, vascularity, and raw athletic performance. Formulated to drive rapid fluid clearance and enhance active hormone efficiency, it binds strongly to Sex Hormone Binding Globulin (SHBG) to promote a crisp, dry, and defined aesthetic.",
+          "image": "/images/clothproduct/pro27.jpg"
+        },
+        {
+          "id": "2-8",
+          "categoryId": 2,
+          "name": "Anavar 50",
+          "price": 181,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Anavar 50 (Oxandrolone) is a high-concentration oral anabolic agent formulated for maximum lean muscle preservation, accelerated fat oxidation, and dramatic strength development. Delivering a potent 50 mg per tablet, it provides an efficient high-dose protocol to maintain extreme muscular density, vascularity, and peak power output without fluid retention.",
+          "image": "/images/clothproduct/pro28.jpg"
+        },
+        {
+          "id": "2-9",
+          "categoryId": 2,
+          "name": "Halotestin 10",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Halotestin 10 (Fluoxymesterone) is an extremely potent oral androgenic agent engineered for raw strength surges, aggressive neural drive, and rapid muscle hardening. Widely utilized by powerlifters, strength athletes, and contest-prep bodybuilders, it provides instantaneous performance acceleration without converting to estrogen or adding fluid weight.",
+          "image": "/images/clothproduct/pro29.jpg"
+        },
+        {
+          "id": "2-10",
+          "categoryId": 2,
+          "name": "Proviron 25",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Proviron 25 (Mesterolone) is an oral androgenic compound engineered to enhance muscle hardness, boost free testosterone levels, and optimize overall anabolic efficiency. By binding strongly to Sex Hormone Binding Globulin (SHBG) and acting as an unyielding aromatase inhibitor, it prevents estrogenic conversion while delivering a hard, grainy, and dry physical aesthetic.",
+          "image": "/images/clothproduct/pro30.jpg"
+        },
+        {
+          "id": "3-1",
+          "categoryId": 3,
+          "name": "Clomid 50",
+          "price": 50,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Clomid 50 (Clomiphene Citrate) is a selective estrogen receptor modulator (SERM) engineered to stimulate endogenously suppressed testosterone recovery following anabolic protocols. By selectively blocking estrogen receptors at the pituitary-hypothalamic axis, it triggers the release of Luteinizing Hormone (LH) and Follicle-Stimulating Hormone (FSH) to rapidly restart natural testicular production.",
+          "image": "/images/clothproduct/pro31.jpg"
+        },
+        {
+          "id": "3-2",
+          "categoryId": 3,
+          "name": "Nolvadex 25",
+          "price": 50,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Nolvadex 25 (Tamoxifen Citrate) is a core selective estrogen receptor modulator (SERM) engineered for targeted estrogen receptor blockade and endocrine recovery. By competitively binding to estrogen receptors in mammary tissue and at the hypothalamic-pituitary level, it provides direct protection against gynecomastia while stimulating the release of gonadotropins to restore endogenous testosterone production.",
+          "image": "/images/clothproduct/pro32.jpg"
+        },
+        {
+          "id": "4-1",
+          "categoryId": 4,
+          "name": "Gonasi 5000 IU",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Gonasi 5000 IU (Human Chorionic Gonadotropin / hCG) is a high-purity polypeptide hormone engineered to maintain testicular function, preserve fertility, and accelerate Leydig cell reactivation. Mimicking Luteinizing Hormone (LH), it prevents testicular atrophy during heavy anabolic protocols and lays the essential foundation for full HPTA recovery. Each kit includes dedicated bacteriostatic water for multi-dose reconstitutions.",
+          "image": "/images/clothproduct/pro33.jpg"
+        },
+        {
+          "id": "5-1",
+          "categoryId": 5,
+          "name": "Letrozole 2.5",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Letrozole 2.5 is a highly potent third-generation non-steroidal aromatase inhibitor (AI) engineered for maximum estrogen suppression and water retention control. By competitively binding to the aromatase enzyme, it blocks the conversion of aromatizable compounds into estrogen, mitigating gynecomastia, fluid buildup, and estrogen-related feedback loops.",
+          "image": "/images/clothproduct/pro34.jpg"
+        },
+        {
+          "id": "5-2",
+          "categoryId": 5,
+          "name": "Arimidex 1",
+          "price": 50,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Arimidex 1 (Anastrozole) is a selective, non-steroidal aromatase inhibitor (AI) engineered for precise systemic estrogen control and water retention mitigation. By binding competitively to the aromatase enzyme, it prevents the conversion of testosterone into estradiol, ensuring a dry physique while shielding against estrogen-related side effects.",
+          "image": "/images/clothproduct/pro35.jpg"
+        },
+        {
+          "id": "5-3",
+          "categoryId": 5,
+          "name": "Aromasin 25",
+          "price": 50,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Aromasin 25 (Exemestane) is a potent, steroidal irreversible aromatase inhibitor engineered to eliminate estrogenic side effects and prevent rebound estrogen spikes. Acting as a \"suicide inhibitor,\" it permanently inactivates the aromatase enzyme, guaranteeing superior estrogen suppression, enhanced fluid clearance, and optimized free testosterone levels.",
+          "image": "/images/clothproduct/pro36.jpg"
+        },
+        {
+          "id": "5-4",
+          "categoryId": 5,
+          "name": "Testogel 16.2",
+          "price": 55,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Testogel 16.2 (Testosterone Gel 1.62%) is a advanced transdermal androgen delivery system engineered for steady, continuous systemic hormone absorption. Formulated with a specialized hydroalcoholic carrier, it penetrates the stratum corneum rapidly to elevate serum testosterone levels without the concentration spikes and troughs associated with short-acting injectable esters.",
+          "image": "/images/clothproduct/pro37.jpg"
+        },
+        {
+          "id": "5-5",
+          "categoryId": 5,
+          "name": "Viagra 25",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Viagra 25 (Sildenafil Citrate) is a selective phosphodiesterase type 5 (PDE5) inhibitor engineered to enhance systemic blood flow, optimize vascular responsiveness, and support maximum erectile quality. Formulated at a precise 25 mg dose, it allows for flexible protocol management, improved microcirculation, and reliable performance on demand.",
+          "image": "/images/clothproduct/pro38.jpg"
+        },
+        {
+          "id": "5-6",
+          "categoryId": 5,
+          "name": "Cialis 25",
+          "price": 60,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Cialis 25 (Tadalafil) is a long-acting selective phosphodiesterase type 5 (PDE5) inhibitor engineered to enhance systemic blood flow, promote sustained vascularity, and optimize erectile performance. Featuring an extended half-life, it supports continuous arterial dilation, improved exercise capacity, and robust vascular responsiveness over an extended therapeutic window.",
+          "image": "/images/clothproduct/pro39.jpg"
+        },
+        {
+          "id": "5-7",
+          "categoryId": 5,
+          "name": "Superman 50",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Superman 50 is a dual-action oral performance blend engineered to deliver maximal vasodilation, enhanced stamina, and reliable erectile support. Combining high-potency PDE5 inhibitors, this synergistic formulation optimizes systemic blood flow, accelerates vascular responsiveness, and sustains peak performance capacity throughout extended physical activity",
+          "image": "/images/clothproduct/pro40.jpg"
+        },
+        {
+          "id": "5-8",
+          "categoryId": 5,
+          "name": "Lipo X 125",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Lipo X 125 is a high-potency thermogenic metabolic complex engineered to accelerate lipid oxidation, increase basal metabolic rate, and preserve lean muscle mass during aggressive cutting phases. Formulated at 125 mg per tablet, it enhances mitochondrial energy expenditure and sustains high physical output while suppressing appetite and eliminating stubborn fluid retention.",
+          "image": "/images/clothproduct/pro41.jpg"
+        },
+        {
+          "id": "5-9",
+          "categoryId": 5,
+          "name": "Cytomel T3 25",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Cytomel T3 25 (Liothyronine Sodium) is a synthetic thyroid hormone engineered to significantly accelerate basal metabolic rate, enhance cellular energy turnover, and drive targeted fat oxidation. As the active form of thyroid hormone (T3), it directly upregulates nutrient metabolism and ATP production to maximize fat loss during strict calorie deficits.",
+          "image": "/images/clothproduct/pro42.jpg"
+        },
+        {
+          "id": "5-10",
+          "categoryId": 5,
+          "name": "Clenbuterol 50",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Clenbuterol 50 is a powerful selective beta-2 sympathomimetic amine engineered to stimulate rapid thermogenesis, elevate basal metabolic rate, and preserve lean tissue during intense cutting cycles. Delivering a potent 50 mcg per tablet, it directly targets lipolysis while enhancing central nervous system output and bronchial airflow for maximum training endurance.",
+          "image": "/images/clothproduct/pro43.jpg"
+        },
+        {
+          "id": "5-11",
+          "categoryId": 5,
+          "name": "Clenbuterol 200",
+          "price": 70,
+          "kind": "product",
+          "description": "Iron Ascension Clenbuterol 200 is a high-concentration oral liquid beta-2 sympathomimetic formulation engineered for rapid metabolic rate elevation, accelerated lipolysis, and precise micro-dosing. Delivering 200 mcg per mL, this liquid presentation offers superior dosing flexibility to easily titrate protocols while driving intense thermogenesis and preserving lean tissue during aggressive cutting phases.",
+          "image": "/images/clothproduct/pro44.jpg"
+        },
+        {
+          "id": "5-12",
+          "categoryId": 5,
+          "name": "5-Amino-1MQ 50",
+          "price": 220,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension 5-Amino-1MQ 50 is an advanced small-molecule selective NNMT (Nicotinamide N-methyltransferase) inhibitor engineered to optimize cellular energy dynamics, accelerate lipid oxidation, and preserve lean muscle tissue. By preventing the depletion of intracellular NAD+ and SAM (S-adenosylmethionine), it drives mitochondrial efficiency, enhances fat loss, and supports metabolic longevity without central nervous system stimulation.",
+          "image": "/images/clothproduct/pro45.jpg"
+        },
+        {
+          "id": "5-13",
+          "categoryId": 5,
+          "name": "Ibutamoren (MK-677) 10",
+          "price": 70,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Ibutamoren 10 (MK-677) is an orally active, non-peptide ghrelin receptor agonist engineered to stimulate endogenous Human Growth Hormone (HGH) and Insulin-Like Growth Factor 1 (IGF-1) secretion. Designed to mimic the natural growth-hormone-releasing action of ghrelin, it promotes deep recovery, accelerates nitrogen retention, enhances lean mass buildup, and optimizes bone mineral density without suppressing natural test levels.",
+          "image": "/images/clothproduct/pro46.jpg"
+        },
+        {
+          "id": "5-14",
+          "categoryId": 5,
+          "name": "Metabol (SR-9011) 10",
+          "price": 91,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Metabol 10 (SR-9011) is an advanced REV-ERBa receptor agonist engineered to modulate the body’s circadian metabolic machinery, optimize energy expenditure, and dramatically boost physical endurance. By activating REV-ERB protein pathways in skeletal muscle, liver, and adipose tissue, it increases mitochondrial density, accelerates fatty acid oxidation, and elevates aerobic capacity without central nervous system stimulation.",
+          "image": "/images/clothproduct/pro47.jpg"
+        },
+        {
+          "id": "5-15",
+          "categoryId": 5,
+          "name": "Stenabolic (SR-9009) 10",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Stenabolic 10 (SR-9009) is a specialized REV-ERBa agonist engineered to enhance metabolic rate, boost aerobic capacity, and accelerate lipid oxidation. By directly activating REV-ERB proteins within skeletal muscle and metabolic tissues, it stimulates mitochondrial biogenesis, turns off fat-storing genes, and enhances VO2 max and physical stamina without impacting the central nervous system or endocrine system.",
+          "image": "/images/clothproduct/pro48.jpg"
+        },
+        {
+          "id": "5-16",
+          "categoryId": 5,
+          "name": "Lipoline (GW-0742) 10",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Lipoline 10 (GW-0742) is a next-generation selective Peroxisome Proliferator-Activated Receptor delta (PPARd) agonist engineered to rapidly accelerate lipid oxidation, enhance cardiovascular endurance, and optimize metabolic efficiency. Formulated at 10 mg per tablet, it shifts energy reliance directly toward fatty acid breakdown, driving intense fat loss and dramatically extending physical stamina without altering natural hormone production.",
+          "image": "/images/clothproduct/pro49.jpg"
+        },
+        {
+          "id": "5-17",
+          "categoryId": 5,
+          "name": "Cardarine (GW-501516) 10",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Cardarine 10 (GW-501516) is a premier selective Peroxisome Proliferator-Activated Receptor delta (PPARd) agonist engineered to dramatically elevate aerobic capacity, accelerate targeted fat oxidation, and improve cardiovascular endurance. By optimizing energy utilization and shifting muscle metabolism toward fatty acid oxidation, it enables longer, more intense training sessions while promoting a lean, defined physique without hormone suppression.",
+          "image": "/images/clothproduct/pro50.jpg"
+        },
+        {
+          "id": "6-1",
+          "categoryId": 6,
+          "name": "Humatrope 100 IU",
+          "price": 251,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Humatrope 100 IU (Somatropin) is a high-purity, 191-amino-acid recombinant Human Growth Hormone identical to the naturally produced pituitary hormone. Engineered to stimulate protein synthesis, accelerate lipolysis, promote deep tissue recovery, and elevate systemic IGF-1 levels, it serves as a cornerstone for hyper-trophic cellular growth and metabolic enhancement. Each kit includes dedicated bacteriostatic water for multi-dose reconstitution and stability.",
+          "image": "/images/clothproduct/pro51.jpg"
+        },
+        {
+          "id": "6-2",
+          "categoryId": 6,
+          "name": "Dynatrope 100 IU",
+          "price": 381,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Dynatrope 100 IU (Somatropin) is a premium, 191-amino-acid recombinant Human Growth Hormone designed for maximal bioavailability and potent biological activity. Engineered to drive protein synthesis, enhance cellular proliferation, and accelerate lipid oxidation, Dynatrope significantly elevates systemic IGF-1 levels to promote rapid tissue repair, lean skeletal muscle retention, and joint matrix resilience. Each kit includes dedicated bacteriostatic water for smooth reconstitution and extended solution stability.",
+          "image": "/images/clothproduct/pro52.jpg"
+        },
+        {
+          "id": "6-3",
+          "categoryId": 6,
+          "name": "Genotrophin 36 IU",
+          "price": 200,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Genotrophin 36 IU (Somatropin) is a high-grade, 191-amino-acid recombinant Human Growth Hormone formulated in a convenient dual-chamber cartridge design. Engineered to stimulate protein synthesis, drive systemic cellular regeneration, and elevate circulating IGF-1 levels, it accelerates lipolysis, enhances muscle tissue recovery, and supports bone density and connective tissue integrity. The cartridge presentation ensures maximal stability, precise dosing control, and rapid preparation.",
+          "image": "/images/clothproduct/pro53.jpg"
+        },
+        {
+          "id": "6-4",
+          "categoryId": 6,
+          "name": "Somatotropin Kit 100 IU",
+          "price": 150,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Somatotropin Kit (Somatropin) is a high-grade 191-amino-acid recombinant Human Growth Hormone kit designed to accelerate tissue recovery, stimulate protein synthesis, and optimize body composition. Formulated as a 10-vial multi-dose presentation, it elevates circulating IGF-1 levels, promotes targeted subcutaneous fat oxidation, and strengthens connective tissue to withstand demanding physical performance.",
+          "image": "/images/clothproduct/pro54.jpg"
+        },
+        {
+          "id": "6-5",
+          "categoryId": 6,
+          "name": "Hygetropin 200 IU Kit",
+          "price": 251,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Hygetropin 200 IU (Somatropin) is a premium, 191-amino-acid recombinant Human Growth Hormone kit engineered for enhanced bioavailability, accelerated tissue repair, and targeted body recomposition. Designed as a high-capacity 20-vial kit, it stimulates hepatic IGF-1 output, promotes continuous lipolysis, and drives skeletal muscle protein synthesis while expanding joint and connective tissue resilience.",
+          "image": "/images/clothproduct/pro55.jpg"
+        },
+        {
+          "id": "6-6",
+          "categoryId": 6,
+          "name": "HGH Kit 100 IU",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension HGH Kit 100 IU (Somatropin) is a high-purity, 191-amino-acid recombinant Human Growth Hormone kit engineered to optimize body composition, accelerate muscular recovery, and promote continuous systemic regeneration. Formulated as a convenient 10-vial presentation, it drives hepatic IGF-1 output, enhances nitrogen retention, and targets subcutaneous fat oxidation. Each kit includes dedicated bacteriostatic water for smooth reconstitution and multi-dose stability.",
+          "image": "/images/clothproduct/pro56.jpg"
+        },
+        {
+          "id": "7-1",
+          "categoryId": 7,
+          "name": "S23 (Ultrabolic) 25",
+          "price": 86,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension S23 (Ultrabolic) 25 is a high-affinity, non-steroidal Selective Androgen Receptor Modulator engineered to promote extreme lean muscle accretion, enhanced strength output, and rapid muscle hardness. Designed with an exceptionally high binding affinity to androgen receptors in skeletal muscle and bone tissue, it mimics the potent anabolic effects of traditional androgenic agents while facilitating a dry, vascular, and highly detailed physical composition.",
+          "image": "/images/clothproduct/pro57.jpg"
+        },
+        {
+          "id": "7-2",
+          "categoryId": 7,
+          "name": "Andarine (S4) 25",
+          "price": 86,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Andarine (S4) 25 is a potent selective androgen receptor modulator engineered to drive rapid lean muscle retention, enhanced muscular hardness, and targeted body recomposition. By selectively binding to androgen receptors in skeletal muscle and bone, it promotes anabolic activity and accelerated lipolysis without causing subcutaneous water retention or estrogenic conversion, making it ideal for cutting and recomp protocols.",
+          "image": "/images/clothproduct/pro58.jpg"
+        },
+        {
+          "id": "7-3",
+          "categoryId": 7,
+          "name": "Ligandrol (LGD-4033) 10",
+          "price": 81,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Ligandrol 10 (LGD-4033) is a highly potent selective androgen receptor modulator engineered to accelerate skeletal muscle tissue growth, boost total strength output, and enhance nitrogen retention. By selectively binding to androgen receptors in muscle and bone with high affinity, it drives significant anabolic gains, increases lean tissue mass, and aids tissue recovery without causing unwanted androgenic side effects.",
+          "image": "/images/clothproduct/pro59.jpg"
+        },
+        {
+          "id": "7-4",
+          "categoryId": 7,
+          "name": "Megabolic (LGD-3033) 10",
+          "price": 86,
+          "kind": "product",
+          "description": "Iron Ascension Megabolic 10 (LGD-3033) is an advanced, high-potency selective androgen receptor modulator engineered to stimulate rapid lean muscle hypertrophy, significant strength increases, and enhanced muscle tissue density. Possessing an exceptionally high binding affinity for skeletal muscle androgen receptors, LGD-3033 delivers targeted anabolic activity to accelerate nitrogen retention and protein synthesis without promoting water retention or unwanted estrogenic activity.",
+          "image": "/images/clothproduct/pro60.jpg"
+        },
+        {
+          "id": "7-5",
+          "categoryId": 7,
+          "name": "Sustalone (RAD-150) 10",
+          "price": 91,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Sustalone 10 (RAD-150) is an advanced anabolic esterified SARM (TLB-150 Benzoate) engineered to deliver sustained androgen receptor binding, increased systemic bioavailability, and rapid lean muscle accretion. By attaching an ester moiety to the original RAD-140 structure, RAD-150 provides a extended half-life, ensuring steady plasma concentration levels to promote continuous tissue anabolic signaling, dramatic strength increases, and superior muscular hardness.",
+          "image": "/images/clothproduct/pro61.jpg"
+        },
+        {
+          "id": "7-6",
+          "categoryId": 7,
+          "name": "Myobol (YK-11) 5",
+          "price": 86,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Myobol 5 (YK-11) is an advanced steroidal SARM and myostatin inhibitor engineered to break through natural genetic muscle-building limits. By selectively binding to androgen receptors in skeletal muscle while simultaneously inducing the expression of Follistatin, YK-11 downregulates myostatin—the primary protein that restricts muscular growth. This dual-action mechanism accelerates rapid muscle tissue expansion, promotes extreme hardness, and drives massive strength output.",
+          "image": "/images/clothproduct/pro62.jpg"
+        },
+        {
+          "id": "7-7",
+          "categoryId": 7,
+          "name": "Ostarine (MK-2866) 10",
+          "price": 81,
+          "kind": "product",
+          "description": "Iron Ascension Ostarine 10 (MK-2866) is a versatile selective androgen receptor modulator engineered to stimulate lean muscle retention, accelerate soft tissue repair, and support steady metabolic recomposition. By binding selectively to androgen receptors in bone and muscle tissue, it drives protein synthesis and protects lean muscle mass during caloric deficits without promoting fluid retention or adverse androgenic side effects.",
+          "image": "/images/clothproduct/pro63.jpg"
+        },
+        {
+          "id": "7-8",
+          "categoryId": 7,
+          "name": "Testolone (RAD-140) 10",
+          "price": 91,
+          "kind": "product",
+          "description": "In Stock\nIron Ascension Testolone 10 (RAD-140) is a high-potency selective androgen receptor modulator engineered to drive rapid skeletal muscle hypertrophy, significant strength increases, and enhanced power output. Designed with an exceptionally high anabolic-to-androgenic ratio, RAD-140 selectively targets androgen receptors in muscle and bone tissue to stimulate protein synthesis and muscular hardness without triggering estrogenic side effects or excessive fluid retention.",
+          "image": "/images/clothproduct/pro64.jpg"
+        }
+      ],
+      "merch": [
+        {
+          "id": "m-1",
+          "kind": "merch",
+          "name": "Classic T-Shirt",
+          "price": 30,
+          "description": "IRON ASCENSION classic training T-shirt.",
+          "image": "/images/clothproduct/pro65.jpg"
+        },
+        {
+          "id": "m-2",
+          "kind": "merch",
+          "name": "Performance Tank",
+          "price": 28,
+          "description": "IRON ASCENSION lightweight performance tank.",
+          "image": "/images/clothproduct/pro66.jpg"
+        },
+        {
+          "id": "m-3",
+          "kind": "merch",
+          "name": "Long-Sleeve Training Shirt",
+          "price": 40,
+          "description": "IRON ASCENSION long-sleeve training shirt.",
+          "image": "/images/clothproduct/pro67.jpg"
+        },
+        {
+          "id": "m-4",
+          "kind": "merch",
+          "name": "Polo",
+          "price": 38,
+          "description": "IRON ASCENSION everyday polo.",
+          "image": "/images/clothproduct/pro68.jpg"
+        },
+        {
+          "id": "m-5",
+          "kind": "merch",
+          "name": "Hoodie",
+          "price": 60,
+          "description": "IRON ASCENSION heavyweight pullover hoodie.",
+          "image": "/images/clothproduct/pro69.jpg"
+        },
+        {
+          "id": "m-6",
+          "kind": "merch",
+          "name": "Joggers",
+          "price": 48,
+          "description": "IRON ASCENSION tapered training joggers.",
+          "image": "/images/clothproduct/pro70.jpg"
+        },
+        {
+          "id": "m-7",
+          "kind": "merch",
+          "name": "Gym Shorts",
+          "price": 30,
+          "description": "IRON ASCENSION breathable gym shorts.",
+          "image": "/images/clothproduct/pro71.jpg"
+        },
+        {
+          "id": "m-8",
+          "kind": "merch",
+          "name": "Cap",
+          "price": 25,
+          "description": "IRON ASCENSION structured embroidered cap.",
+          "image": "/images/clothproduct/pro72.jpg"
+        },
+        {
+          "id": "m-9",
+          "kind": "merch",
+          "name": "Shaker Bottle",
+          "price": 15,
+          "description": "IRON ASCENSION leak-proof shaker bottle.",
+          "image": "/images/clothproduct/pro73.jpg"
+        },
+        {
+          "id": "m-10",
+          "kind": "merch",
+          "name": "Sports Bra",
+          "price": 32,
+          "description": "IRON ASCENSION supportive training sports bra.",
+          "image": "/images/clothproduct/pro74.jpg"
+        }
+      ]
+    }
+  },
+  {
     "id": "mw5ufe46-jvgb",
     "at": "2026-11-07T03:28:02.358Z",
     "summary": "Catalog update",

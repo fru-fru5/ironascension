@@ -13,3 +13,13 @@ export const categories = catalog.categories;
 export const products = catalog.products;
 export const merch = catalog.merch;
 export const getCategory = (id) => categories.find((c) => c.id === id);
+
+// A category name of "." (or empty) is a placeholder that should not be shown.
+const placeholderName = /^\.*$/;
+export const isPlaceholderName = (value) => placeholderName.test(String(value ?? "").trim());
+export const visibleName = (value) =>
+  isPlaceholderName(value) ? "" : String(value ?? "").trim();
+export const categorySeoName = (category) =>
+  visibleName(category?.name) ||
+  String(category?.introTitle || category?.blurb || "").trim() ||
+  "Products";

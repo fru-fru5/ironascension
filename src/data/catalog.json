@@ -4,7 +4,7 @@
     "tagline": "Strength. Science. Discipline.",
     "email": "contact@ironascensions.com",
     "whatsappNumber": "16892827251",
-    "phone": "+1 (423) 484-7466",
+    "phone": "+1(689) 282-7251",
     "hours": "Mon-Fri, 8:00 AM - 6:00 PM EST",
     "currency": "$",
     "returnWindowDays": 30,
@@ -131,7 +131,6 @@
   },
   "paymentMethods": [
     "Bitcoin",
-    "Cashapp",
     "Apple Pay",
     "Zelle",
     "Chime",
@@ -165,8 +164,8 @@
           "a": "Use live chat or the contact page with the product name. Support can confirm current availability before you submit your request."
         }
       ],
-      "banner": "/images/uploads/se3-2.png",
-      "cardImage": "/images/uploads/se3.png",
+      "banner": "/images/uploads/se3-2.jpg",
+      "cardImage": "/images/uploads/se3.jpg",
       "price": 29
     },
     {
@@ -196,8 +195,8 @@
           "a": "Submit your request and our team verifies availability. You can also ask support about a specific item before ordering."
         }
       ],
-      "banner": "/images/uploads/se7-3.png",
-      "cardImage": "/images/uploads/se7.png",
+      "banner": "/images/uploads/se7-3.jpg",
+      "cardImage": "/images/uploads/se7.jpg",
       "price": 24
     },
     {
@@ -227,8 +226,8 @@
           "a": "Requests are usually reviewed within 24 business hours, Monday to Friday."
         }
       ],
-      "banner": "/images/uploads/se2-1.png",
-      "cardImage": "/images/uploads/se2.png",
+      "banner": "/images/uploads/se2-1.jpg",
+      "cardImage": "/images/uploads/se2.jpg",
       "price": 38
     },
     {
@@ -258,8 +257,8 @@
           "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
         }
       ],
-      "banner": "/images/uploads/se1-5.png",
-      "cardImage": "/images/uploads/se1-4.png",
+      "banner": "/images/uploads/se1-5.jpg",
+      "cardImage": "/images/uploads/se1-4.jpg",
       "price": 59
     },
     {
@@ -289,8 +288,8 @@
           "a": "Send an order request or contact support with the exact product name and quantity."
         }
       ],
-      "banner": "/images/uploads/se5-2.png",
-      "cardImage": "/images/uploads/se5.png",
+      "banner": "/images/uploads/se5-2.jpg",
+      "cardImage": "/images/uploads/se5.jpg",
       "price": 45
     },
     {
@@ -320,8 +319,8 @@
           "a": "Yes. Set the quantity on the product page or add multiple kits to your cart before sending the request."
         }
       ],
-      "banner": "/images/uploads/se4-1.png",
-      "cardImage": "/images/uploads/se4-3.png",
+      "banner": "/images/uploads/se4-1.jpg",
+      "cardImage": "/images/uploads/se4-3.jpg",
       "price": 27
     },
     {
@@ -351,8 +350,8 @@
           "a": "Yes. Orders are packed discreetly and tracking is sent by email where available."
         }
       ],
-      "banner": "/images/uploads/se6-1.png",
-      "cardImage": "/images/uploads/se6-2.png",
+      "banner": "/images/uploads/se6-1.jpg",
+      "cardImage": "/images/uploads/se6-2.jpg",
       "price": 19
     }
   ],

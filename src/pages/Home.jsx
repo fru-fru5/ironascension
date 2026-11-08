@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo.jsx";
-import { site, images, categories } from "../data/site.js";
+import { site, images, categories, visibleName } from "../data/site.js";
 
 export default function Home() {
-  const categoryNames = categories.map((c) => c.name).join(", ");
+  const categoryNames = categories
+    .map((c) => visibleName(c.name) || c.blurb)
+    .filter(Boolean)
+    .join(", ");
 
   return (
     <>
@@ -74,7 +77,7 @@ export default function Home() {
                 {categories.map((c) => (
                   <li key={c.id}>
                     <Link to={`/${c.slug}`}>
-                      <strong>{c.name}</strong>
+                      {visibleName(c.name) && <strong>{c.name}</strong>}
                       <span>{c.blurb}</span>
                     </Link>
                   </li>

@@ -4,7 +4,7 @@ import PageHero from "../components/PageHero.jsx";
 import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
 import BgSection from "../components/BgSection.jsx";
 import Seo from "../components/Seo.jsx";
-import { site, images, categories, about } from "../data/site.js";
+import { site, images, categories, about, visibleName } from "../data/site.js";
 import { formatAboutText } from "../data/about.js";
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -56,7 +56,7 @@ export default function About() {
             {categories.map((c) => (
               <Link key={c.id} to={`/${c.slug}`} className="info-card">
                 <span className="info-num">{pad(c.id)}</span>
-                <h3>{c.name}</h3>
+                {visibleName(c.name) && <h3>{c.name}</h3>}
                 <p className="muted">{c.blurb}</p>
               </Link>
             ))}
