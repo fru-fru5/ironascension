@@ -118,17 +118,30 @@ export const seoToHtml = (seo) => {
   return tags.filter(Boolean).join("\n    ");
 };
 
-export const organizationJsonLd = ({ site = {}, baseUrl = "", logo }) => ({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${normalizeBaseUrl(baseUrl)}/#organization`,
-  name: site.name || "Store",
-  url: absoluteUrl(baseUrl, "/"),
-  logo: toAbsoluteUrl(baseUrl, logo) || undefined,
-  email: site.email || undefined,
-  telephone: site.phone || undefined,
-  description: site.tagline || undefined,
-});
+const telegramProfileUrl = (value) => {
+  const username = String(value || "")
+    .trim()
+    .replace(/^@/, "")
+    .replace(/^(?:https?:\/\/)?(?:www\.)?(?:t\.me|telegram\.me)\//i, "")
+    .replace(/[/?#].*$/, "");
+  return username ? `https://t.me/${username}` : undefined;
+};
+
+export const organizationJsonLd = ({ site = {}, baseUrl = "", logo }) => {
+  const telegram = telegramProfileUrl(site.telegram);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${normalizeBaseUrl(baseUrl)}/#organization`,
+    name: site.name || "Store",
+    url: absoluteUrl(baseUrl, "/"),
+    logo: toAbsoluteUrl(baseUrl, logo) || undefined,
+    email: site.email || undefined,
+    telephone: site.phone || undefined,
+    sameAs: telegram ? [telegram] : undefined,
+    description: site.tagline || undefined,
+  };
+};
 
 export const webSiteJsonLd = ({ site = {}, baseUrl = "" }) => ({
   "@context": "https://schema.org",

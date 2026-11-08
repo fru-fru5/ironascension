@@ -30,6 +30,11 @@ export const ClockIcon = (p) => (
     <path d="M12 7v5l3 2" />
   </svg>
 );
+export const TelegramIcon = (p) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
+    <path d="M21.9 4.3 18.7 19c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 12.3l-4.6-1.4c-1-.3-1-1 .2-1.5L20.6 2.5c.8-.3 1.5.2 1.3 1.8Z" />
+  </svg>
+);
 export const ChatIcon = (p) => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
     <path d="M12 3C6.5 3 2 6.6 2 11.1c0 2.4 1.3 4.5 3.4 6L4.5 21l4.3-2.2c1 .3 2.1.4 3.2.4 5.5 0 10-3.6 10-8.1S17.5 3 12 3Z" />

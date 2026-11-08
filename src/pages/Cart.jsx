@@ -5,7 +5,7 @@ import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
 import Seo from "../components/Seo.jsx";
 import { CloseIcon } from "../components/Icons.jsx";
 import { useCart } from "../context/CartContext.jsx";
-import { site, discounts, paymentMethods, freeGift } from "../data/site.js";
+import { site, discounts, paymentMethods, freeGift, telegramHref } from "../data/site.js";
 
 const money = (n) => `${site.currency}${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
@@ -81,6 +81,13 @@ export default function Cart() {
     setError(err);
     if (err) return;
     window.open(`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(buildMessage())}`, "_blank", "noopener");
+  };
+
+  const sendTelegram = () => {
+    const err = validate();
+    setError(err);
+    if (err) return;
+    window.open(telegramHref(buildMessage()), "_blank", "noopener");
   };
 
   return (
@@ -184,6 +191,7 @@ export default function Cart() {
                   <option value="">Select one</option>
                   <option>Text message</option>
                   <option>WhatsApp</option>
+                  <option>Telegram</option>
                 </select>
                 <small className="muted">Pick the one you're most active on.</small>
               </label>
@@ -201,8 +209,9 @@ export default function Cart() {
               {error && <p className="error" role="alert">{error}</p>}
               <button type="button" className="btn btn-primary btn-block" onClick={sendEmail}>Send Order Request by Email</button>
               <button type="button" className="btn btn-wa btn-block" onClick={sendWhatsApp}>Send Order Request by WhatsApp</button>
+              <button type="button" className="btn btn-tg btn-block" onClick={sendTelegram}>Send Order Request by Telegram</button>
               <p className="muted small">
-                WhatsApp opens a chat with your order summary already typed in - just hit send.
+                WhatsApp or Telegram opens a chat with your order summary already typed in - just hit send.
               </p>
             </div>
             <Link to="/products" className="link-arrow">Continue Browsing</Link>

@@ -2,8 +2,8 @@ import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";
 import PageHero from "../components/PageHero.jsx";
 import Seo from "../components/Seo.jsx";
-import { MailIcon, PhoneIcon, ClockIcon } from "../components/Icons.jsx";
-import { site, images } from "../data/site.js";
+import { MailIcon, PhoneIcon, ClockIcon, TelegramIcon } from "../components/Icons.jsx";
+import { site, images, telegramHref, telegramUsername } from "../data/site.js";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", orderId: "", subject: "", message: "" });
@@ -35,7 +35,7 @@ export default function Contact() {
     <>
       <Seo
         title={`Contact ${site.name}`}
-        description={`Contact ${site.name} customer and order support by email, phone or live chat.`}
+        description={`Contact ${site.name} customer and order support by email, phone, Telegram or live chat.`}
         path="/contact"
         image={images.hero}
       />
@@ -72,6 +72,15 @@ export default function Contact() {
                 <div>
                   <span className="contact-label">Phone Support</span>
                   <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}>{site.phone}</a>
+                </div>
+              </div>
+              <div className="contact-card">
+                <span className="contact-ico"><TelegramIcon /></span>
+                <div>
+                  <span className="contact-label">Telegram</span>
+                  <a href={telegramHref()} target="_blank" rel="noopener noreferrer">
+                    t.me/{telegramUsername()}
+                  </a>
                 </div>
               </div>
               <div className="contact-card">

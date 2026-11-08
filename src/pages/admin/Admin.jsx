@@ -704,6 +704,11 @@ function SettingsPanel({ catalog, update, images, setImages }) {
             value={catalog.site.whatsappNumber}
             onChange={(value) => setSite("whatsappNumber", value)}
           />
+          <TextField
+            label="Telegram username"
+            value={catalog.site.telegram}
+            onChange={(value) => setSite("telegram", value)}
+          />
           <TextField label="Hours" value={catalog.site.hours} onChange={(value) => setSite("hours", value)} />
           <TextField label="Currency" value={catalog.site.currency} onChange={(value) => setSite("currency", value)} />
           <TextField label="Merch label" value={catalog.site.merchLabel} onChange={(value) => setSite("merchLabel", value)} />

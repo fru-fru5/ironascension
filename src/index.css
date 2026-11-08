@@ -17,6 +17,7 @@
   --muted: #666666;
   --green: #1f7a34;
   --wa: #25d366;
+  --tg: #229ed9;
   --radius: 4px;
   --font-head: "Montserrat", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -95,6 +96,8 @@ ul, ol { padding-left: 1.2em; }
 .btn-outline:hover { border-color: var(--ink); background: #fafafa; }
 .btn-wa { background: var(--wa); color: #fff; }
 .btn-wa:hover { background: #1fa853; }
+.btn-tg { background: var(--tg); color: #fff; }
+.btn-tg:hover { background: #1b8ac2; }
 .btn-block { width: 100%; white-space: normal; }
 .btn-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; margin-top: 2rem; }
 .btn-pair { display: flex; gap: .6rem; margin-top: auto; }

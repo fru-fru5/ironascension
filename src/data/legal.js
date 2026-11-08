@@ -108,7 +108,7 @@ export const privacy = {
     },
     {
       h: "4. Messaging channels",
-      p: ["If you send an order request by email or WhatsApp, that message is handled by those services under their own privacy policies."],
+      p: ["If you send an order request by email, WhatsApp or Telegram, that message is handled by those services under their own privacy policies."],
     },
     {
       h: "5. Retention and your rights",

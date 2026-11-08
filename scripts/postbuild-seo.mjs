@@ -402,10 +402,10 @@ addRoute({
 addRoute({
   path: "/contact",
   title: `Contact ${brand}`,
-  description: `Contact ${brand} customer and order support by email, phone or live chat.`,
+  description: `Contact ${brand} customer and order support by email, phone, Telegram or live chat.`,
   image: images.hero,
   heading: `Contact ${brand}`,
-  noscriptIntro: `Contact ${brand} customer and order support by email, phone or live chat.`,
+  noscriptIntro: `Contact ${brand} customer and order support by email, phone, Telegram or live chat.`,
   jsonLd: withGlobal([
     webPageJsonLd({
       type: "ContactPage",

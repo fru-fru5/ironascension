@@ -23,3 +23,15 @@ export const categorySeoName = (category) =>
   visibleName(category?.name) ||
   String(category?.introTitle || category?.blurb || "").trim() ||
   "Products";
+
+// Telegram order/contact link. Accepts a username, @username or full t.me URL.
+export const telegramUsername = (value = site.telegram) =>
+  String(value || "")
+    .trim()
+    .replace(/^@/, "")
+    .replace(/^(?:https?:\/\/)?(?:www\.)?(?:t\.me|telegram\.me)\//i, "")
+    .replace(/[/?#].*$/, "");
+export const telegramHref = (text = "") => {
+  const username = telegramUsername();
+  return `https://t.me/${username}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+};

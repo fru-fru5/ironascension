@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { LogoMark } from "./Logo.jsx";
-import { site, images } from "../data/site.js";
+import { site, images, telegramHref } from "../data/site.js";
 
 export default function Footer() {
   return (
@@ -22,6 +22,7 @@ export default function Footer() {
           <h4>Company</h4>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <a href={telegramHref()} target="_blank" rel="noopener noreferrer">Order via Telegram</a>
           <Link to="/order">Cart</Link>
         </div>
         <div>
