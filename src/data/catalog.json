@@ -141,7 +141,7 @@
     {
       "id": 1,
       "slug": "category-1",
-      "name": ".",
+      "name": "INJECTABLES",
       "blurb": "PREMIUM, PURITY, PERFORMANCE",
       "seoDescription": "Shop research-grade injectables including testosterone, trenbolone, masteron and primobolan formulations with clear strengths and prices.",
       "introTitle": "Research-Grade Injectable Compounds",
@@ -172,7 +172,7 @@
     {
       "id": 2,
       "slug": "category-2",
-      "name": ".",
+      "name": "Oral Tablets",
       "blurb": "Oral research compounds",
       "seoDescription": "Compare oral tablets including Anavar, Turinabol, Dianabol, Anadrol, Winstrol and Proviron with clear strengths, sealed packs and simple ordering.",
       "introTitle": "Oral Tablet Catalog",
@@ -203,7 +203,7 @@
     {
       "id": 3,
       "slug": "category-3",
-      "name": ".",
+      "name": "PCT",
       "blurb": "Post Cycle Therapy & cycle support",
       "seoDescription": "Shop PCT products including Clomid 50 and Nolvadex 25. Compare strengths, check availability and add post-cycle support to your order request.",
       "introTitle": "Post-Cycle Therapy & Support",
@@ -234,7 +234,7 @@
     {
       "id": 4,
       "slug": "category-4",
-      "name": ".",
+      "name": "HCG",
       "blurb": "HCG products",
       "seoDescription": "Shop Gonasi 5000 IU HCG with clear product details, discreet packing and a simple order-request process. Check availability with our team.",
       "introTitle": "HCG Products",
@@ -265,7 +265,7 @@
     {
       "id": 5,
       "slug": "category-5",
-      "name": ".",
+      "name": "PEFORMANCE & SUPPORT",
       "blurb": "Performance and support products",
       "seoDescription": "Shop performance and support products including aromatase inhibitors, SARMs, Clenbuterol, T3 and research compounds in one organized category.",
       "introTitle": "Performance & Support Compounds",
@@ -296,7 +296,7 @@
     {
       "id": 6,
       "slug": "category-6",
-      "name": ".",
+      "name": "HGH",
       "blurb": "Human growth hormone products",
       "seoDescription": "Compare HGH kits from Humatrope, Dynatrope, Genotrophin, Somatotropin and Hygetropin with kit sizes, prices and discreet shipping.",
       "introTitle": "Human Growth Hormone Kits",
@@ -327,7 +327,7 @@
     {
       "id": 7,
       "slug": "category-7",
-      "name": ".",
+      "name": "SARMS",
       "blurb": "SARMS & Selective Labs",
       "seoDescription": "Shop SARMs including Ostarine, Ligandrol, Testolone, Andarine, S23, YK-11 and RAD-150 with clear strengths and simple order requests.",
       "introTitle": "SARMs & Selective Research Compounds",
