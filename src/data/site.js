@@ -1,8 +1,10 @@
 ﻿import catalog from "./catalog.json";
 import { resolveAbout } from "./about.js";
+import { resolveHome } from "./home.js";
 
 export const site = catalog.site;
 export const about = resolveAbout(catalog.about);
+export const home = resolveHome(catalog.home);
 export const announcements = catalog.announcements;
 export const freeGift = catalog.freeGift;
 export const ageGate = catalog.ageGate;

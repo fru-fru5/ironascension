@@ -22,6 +22,7 @@ import {
   siteJsonLd,
   webPageJsonLd,
 } from "../src/data/seo.js";
+import { formatHomeText, resolveHome } from "../src/data/home.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(root, "dist");
@@ -38,6 +39,7 @@ const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 const site = catalog.site || {};
 const images = catalog.images || {};
 const about = catalog.about || {};
+const home = resolveHome(catalog.home);
 const categories = catalog.categories || [];
 const products = catalog.products || [];
 const merch = catalog.merch || [];
@@ -104,19 +106,25 @@ const productDescription = (product) => {
   return cleanText(text || `${product.name} from ${brand}.`);
 };
 
-const homeDescription = cleanText(
-  `${brand} — ${site.tagline || "Premium performance products"}. Browse ${categories
-    .map((category) => visibleName(category.name) || category.blurb || category.introTitle)
-    .filter(Boolean)
-    .join(", ")} and more.`
-);
+const homeTitle =
+  cleanText(formatHomeText(home.seoTitle, brand, merchLabel)) ||
+  `${brand} | ${site.tagline || "Premium Performance Products"}`;
+
+const homeDescription =
+  cleanText(formatHomeText(home.seoDescription, brand, merchLabel)) ||
+  cleanText(
+    `${brand} — ${site.tagline || "Premium performance products"}. Browse ${categories
+      .map((category) => visibleName(category.name) || category.blurb || category.introTitle)
+      .filter(Boolean)
+      .join(", ")} and more.`
+  );
 
 const routes = [];
 const addRoute = (route) => routes.push(route);
 
 addRoute({
   path: "/",
-  title: `${brand} | ${site.tagline || "Premium Performance Products"}`,
+  title: homeTitle,
   description: homeDescription,
   image: images.hero,
   type: "website",

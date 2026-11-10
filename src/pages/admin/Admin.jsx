@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./admin.css";
 import { resolveAbout } from "../../data/about.js";
+import { resolveHome } from "../../data/home.js";
 
 const API = "/api/admin";
 
@@ -34,6 +35,7 @@ const nextMerchId = (merch) => {
 
 const tabs = [
   ["overview", "Overview"],
+  ["home", "Home page"],
   ["products", "Products"],
   ["categories", "Categories"],
   ["merch", "Merch"],
@@ -373,6 +375,10 @@ export default function Admin() {
         <main className="admin-content">
           {tab === "overview" && (
             <OverviewPanel catalog={catalog} history={history} images={images} setTab={setTab} />
+          )}
+
+          {tab === "home" && (
+            <HomePanel catalog={catalog} update={update} images={images} setImages={setImages} />
           )}
 
           {tab === "products" && (
@@ -856,6 +862,188 @@ function SettingsPanel({ catalog, update, images, setImages }) {
   );
 }
 
+function HomePanel({ catalog, update, images, setImages }) {
+  const home = resolveHome(catalog.home);
+  const setHome = (key, value) =>
+    update((current) => ({
+      ...current,
+      home: { ...resolveHome(current.home), [key]: value },
+    }));
+  const setImage = (key, value) =>
+    update((current) => ({ ...current, images: { ...current.images, [key]: value } }));
+
+  return (
+    <div className="admin-stack">
+      <section className="admin-card">
+        <h2>Search engine listing</h2>
+        <p className="admin-muted">
+          Leave blank to use the automatic title and description. Use <code>{"{brand}"}</code> and{" "}
+          <code>{"{merchLabel}"}</code> anywhere on this page.
+        </p>
+        <div className="admin-form-grid">
+          <TextField
+            label="SEO title"
+            value={home.seoTitle}
+            placeholder="Brand | Tagline"
+            onChange={(value) => setHome("seoTitle", value)}
+          />
+          <TextAreaField
+            label="SEO description (max 160 characters)"
+            value={home.seoDescription}
+            onChange={(value) => setHome("seoDescription", value)}
+            rows={3}
+          />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <h2>Hero</h2>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={home.heroEyebrow} onChange={(value) => setHome("heroEyebrow", value)} />
+          <TextField label="Title" value={home.heroTitle} onChange={(value) => setHome("heroTitle", value)} />
+          <TextField
+            label="Highlighted title word"
+            value={home.heroAccent}
+            placeholder="ascend."
+            onChange={(value) => setHome("heroAccent", value)}
+          />
+          <TextAreaField label="Intro text" value={home.heroText} onChange={(value) => setHome("heroText", value)} rows={3} />
+          <TextField
+            label="Primary button label"
+            value={home.heroPrimaryLabel}
+            onChange={(value) => setHome("heroPrimaryLabel", value)}
+          />
+          <TextField
+            label="Primary button link"
+            value={home.heroPrimaryLink}
+            onChange={(value) => setHome("heroPrimaryLink", value)}
+          />
+          <TextField
+            label="Secondary button label"
+            value={home.heroSecondaryLabel}
+            onChange={(value) => setHome("heroSecondaryLabel", value)}
+          />
+          <TextField
+            label="Secondary button link"
+            value={home.heroSecondaryLink}
+            onChange={(value) => setHome("heroSecondaryLink", value)}
+          />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <div className="admin-card-head">
+          <h2>The Brand section</h2>
+          <CheckboxField label="Show section" checked={home.showBrand} onChange={(value) => setHome("showBrand", value)} />
+        </div>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={home.brandEyebrow} onChange={(value) => setHome("brandEyebrow", value)} />
+          <TextField label="Title" value={home.brandTitle} onChange={(value) => setHome("brandTitle", value)} />
+          <TextAreaField label="Lead text" value={home.brandText} onChange={(value) => setHome("brandText", value)} rows={4} />
+          <TextAreaField label="Body text" value={home.brandBody} onChange={(value) => setHome("brandBody", value)} rows={4} />
+          <TextField label="Button label" value={home.brandCtaLabel} onChange={(value) => setHome("brandCtaLabel", value)} />
+          <TextField label="Button link" value={home.brandCtaLink} onChange={(value) => setHome("brandCtaLink", value)} />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <div className="admin-card-head">
+          <h2>Catalog section</h2>
+          <CheckboxField label="Show section" checked={home.showCatalog} onChange={(value) => setHome("showCatalog", value)} />
+        </div>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={home.catalogEyebrow} onChange={(value) => setHome("catalogEyebrow", value)} />
+          <TextField label="Title" value={home.catalogTitle} onChange={(value) => setHome("catalogTitle", value)} />
+          <TextAreaField label="Intro text" value={home.catalogText} onChange={(value) => setHome("catalogText", value)} rows={3} />
+          <TextField label="Button label" value={home.catalogCtaLabel} onChange={(value) => setHome("catalogCtaLabel", value)} />
+          <TextField label="Button link" value={home.catalogCtaLink} onChange={(value) => setHome("catalogCtaLink", value)} />
+        </div>
+        <p className="admin-muted">The category list is generated from the Categories tab.</p>
+      </section>
+
+      <section className="admin-card">
+        <div className="admin-card-head">
+          <h2>Training Culture section</h2>
+          <CheckboxField
+            label="Show section"
+            checked={home.showTraining}
+            onChange={(value) => setHome("showTraining", value)}
+          />
+        </div>
+        <div className="admin-form-grid">
+          <TextField
+            label="Eyebrow"
+            value={home.trainingEyebrow}
+            onChange={(value) => setHome("trainingEyebrow", value)}
+          />
+          <TextField label="Title" value={home.trainingTitle} onChange={(value) => setHome("trainingTitle", value)} />
+          <TextAreaField
+            label="Intro text"
+            value={home.trainingText}
+            onChange={(value) => setHome("trainingText", value)}
+            rows={3}
+          />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <div className="admin-card-head">
+          <h2>Merchandise section</h2>
+          <CheckboxField label="Show section" checked={home.showMerch} onChange={(value) => setHome("showMerch", value)} />
+        </div>
+        <div className="admin-form-grid">
+          <TextField label="Eyebrow" value={home.merchEyebrow} onChange={(value) => setHome("merchEyebrow", value)} />
+          <TextField label="Title" value={home.merchTitle} onChange={(value) => setHome("merchTitle", value)} />
+          <TextAreaField label="Intro text" value={home.merchText} onChange={(value) => setHome("merchText", value)} rows={3} />
+          <TextField label="Button label" value={home.merchCtaLabel} onChange={(value) => setHome("merchCtaLabel", value)} />
+          <TextField label="Button link" value={home.merchCtaLink} onChange={(value) => setHome("merchCtaLink", value)} />
+        </div>
+      </section>
+
+      <section className="admin-card">
+        <h2>Home page images</h2>
+        <div className="admin-form-grid admin-form-grid-wide">
+          <ImageField
+            label="Hero background"
+            value={catalog.images.hero}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("hero", value)}
+          />
+          <ImageField
+            label="The Brand image"
+            value={catalog.images.brand}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("brand", value)}
+          />
+          <ImageField
+            label="Catalog lineup image"
+            value={catalog.images.lineup}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("lineup", value)}
+          />
+          <ImageField
+            label="Training Culture image"
+            value={catalog.images.lifestyle}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("lifestyle", value)}
+          />
+          <ImageField
+            label="Merchandise teaser image"
+            value={catalog.images.merchTeaser}
+            images={images}
+            setImages={setImages}
+            onChange={(value) => setImage("merchTeaser", value)}
+          />
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function AboutPanel({ catalog, update, images, setImages }) {
   const about = resolveAbout(catalog.about);
   const setAbout = (key, value) =>
@@ -1242,7 +1430,7 @@ function CategoryForm({ mode, category, images, setImages, onSave, onCancel }) {
   );
 }
 
-function TextField({ label, value, onChange, type = "text", disabled = false }) {
+function TextField({ label, value, onChange, type = "text", disabled = false, placeholder }) {
   return (
     <label className="admin-field">
       <span>{label}</span>
@@ -1251,8 +1439,18 @@ function TextField({ label, value, onChange, type = "text", disabled = false }) 
         type={type}
         value={value ?? ""}
         disabled={disabled}
+        placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
       />
+    </label>
+  );
+}
+
+function CheckboxField({ label, checked, onChange }) {
+  return (
+    <label className="admin-check">
+      <input type="checkbox" checked={Boolean(checked)} onChange={(event) => onChange(event.target.checked)} />
+      {label}
     </label>
   );
 }

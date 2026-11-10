@@ -14,7 +14,7 @@ npm run build    # production build in /dist
 ## Local admin (development only)
 Run `npm run dev`, then open `/admin` on the local Vite URL (for example `http://localhost:5173/admin`).
 
-- Edit products, categories, merch, prices, images, the About page copy and FAQ, and site settings.
+- Edit the home page, products, categories, merch, prices, images, the About page copy and FAQ, and site settings.
 - Save writes the catalog to `src/data/catalog.json`.
 - The last 40 saved snapshots are kept in `src/data/admin-history.json` and can be restored from the History tab.
 - Uploaded images go to `public/images/uploads`.
@@ -56,8 +56,9 @@ The floating chat button opens Smartsupp live chat. The account key is set in `s
 To use a different Smartsupp account, either edit the key in `src/components/ChatButton.jsx` or set `VITE_SMARTSUPP_KEY` in `.env` (local) and in Cloudflare Pages (production). A set env var overrides the built-in key.
 
 ## What to edit
-- Use the local admin at `/admin` for catalog and site settings.
-- `src/data/catalog.json` stores products, categories, merch, images and site settings.
+- Use the local admin at `/admin` for home page copy, catalog and site settings.
+- `src/data/catalog.json` stores the home page copy, products, categories, merch, images and site settings.
+- `src/data/home.js` holds the default home page copy (used when a field is missing).
 - `src/data/site.js` exports that catalog to the storefront.
 - `src/data/legal.js` stores legal and FAQ copy.
 
