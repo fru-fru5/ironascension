@@ -28,6 +28,10 @@ export default function Cart() {
     return { combined, discount, total: subtotal - discount, gift: subtotal >= freeGift.threshold };
   }, [count, subtotal, promoApplied, form.payment]);
 
+  const minimumOrder = Number(site.minimumOrderTotal ?? 100) || 0;
+  const belowMinimum = items.length > 0 && minimumOrder > 0 && totals.total < minimumOrder;
+  const amountToMinimum = Math.max(0, minimumOrder - totals.total);
+
   const applyPromo = () => {
     if (promo.trim().toUpperCase() === discounts.welcomeCode.code) {
       setPromoApplied(true);
@@ -64,6 +68,8 @@ export default function Cart() {
 
   const validate = () => {
     if (items.length === 0) return "Your cart is empty.";
+    if (belowMinimum)
+      return `Minimum order total is ${money(minimumOrder)}. Add ${money(amountToMinimum)} more to submit your order request.`;
     if (!/^\S+@\S+\.\S+$/.test(form.email)) return "Enter a valid email address.";
     if (!form.contactVia) return "Choose how we should contact you.";
     return "";
@@ -101,7 +107,7 @@ export default function Cart() {
       <PageHero
         eyebrow="Cart"
         title="Your Cart"
-        text="Review your items and submit an order request. Nothing is charged here - our team follows up to confirm pricing and payment."
+        text={`Review your items and submit an order request.${minimumOrder > 0 ? ` A minimum order total of ${money(minimumOrder)} applies.` : ""} Nothing is charged here - our team follows up to confirm pricing and payment.`}
       />
       <section className="section">
         <div className="container cart-layout">
@@ -162,6 +168,12 @@ export default function Cart() {
                 <dd>{money(totals.total)}</dd>
               </div>
             </dl>
+            {belowMinimum && (
+              <p className="cart-warning" role="alert">
+                Minimum order total is {money(minimumOrder)}. Add {money(amountToMinimum)} more to submit
+                your order request.
+              </p>
+            )}
             {items.length > 0 && (
               <button className="link-btn" onClick={clear}>Clear cart</button>
             )}

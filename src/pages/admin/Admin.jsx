@@ -725,11 +725,20 @@ function SettingsPanel({ catalog, update, images, setImages }) {
             onChange={(value) => setSite("returnWindowDays", Number(value))}
           />
           <TextField
+            label="Minimum order total"
+            type="number"
+            value={catalog.site.minimumOrderTotal ?? 100}
+            onChange={(value) => setSite("minimumOrderTotal", Number(value))}
+          />
+          <TextField
             label="Effective date"
             value={catalog.site.effectiveDate}
             onChange={(value) => setSite("effectiveDate", value)}
           />
         </div>
+        <p className="admin-muted">
+          Order requests below the minimum total cannot be submitted. Set 0 to disable the minimum.
+        </p>
       </section>
 
       <section className="admin-card">

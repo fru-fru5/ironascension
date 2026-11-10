@@ -9,6 +9,7 @@
     "hours": "Mon-Fri, 8:00 AM - 6:00 PM EST",
     "currency": "$",
     "returnWindowDays": 30,
+    "minimumOrderTotal": 100,
     "effectiveDate": "November 7, 2026",
     "merchLabel": "Merch"
   },
