@@ -23,6 +23,7 @@ import {
   webPageJsonLd,
 } from "../src/data/seo.js";
 import { formatHomeText, resolveHome } from "../src/data/home.js";
+import { guideDescription, guideFaq } from "../src/data/guide.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(root, "dist");
@@ -113,7 +114,7 @@ const homeTitle =
 const homeDescription =
   cleanText(formatHomeText(home.seoDescription, brand, merchLabel)) ||
   cleanText(
-    `${brand} — ${site.tagline || "Premium performance products"}. Browse ${categories
+    `${brand} — ${String(site.tagline || "Premium performance products").replace(/\.$/, "")}. Browse ${categories
       .map((category) => visibleName(category.name) || category.blurb || category.introTitle)
       .filter(Boolean)
       .join(", ")} and more.`
@@ -153,8 +154,8 @@ addRoute({
 
 addRoute({
   path: "/products",
-  title: `Shop All Products | ${brand}`,
-  description: `Browse all ${products.length} products across ${categories.length} categories at ${brand}. Search the catalog and request your order online.`,
+  title: `All Research Compounds & Products | ${brand}`,
+  description: `Browse research compounds, SARMs, HGH, PCT and athletic gear across ${categories.length} categories. Compare strengths and prices, then request your order online.`,
   image: images.productsHero,
   preload: true,
   heading: "Shop All Products",
@@ -199,7 +200,7 @@ addRoute({
 categories.forEach((category) => {
   const list = products.filter((product) => product.categoryId === category.id);
   const categoryName = categorySeoName(category);
-  const title = `${categoryName} | ${brand}`;
+  const title = category.seoTitle || `${categoryName} | ${brand}`;
   const description = cleanText(
     category.seoDescription ||
       `${category.blurb || categoryName}. Shop ${categoryName} products at ${brand}.`
@@ -404,6 +405,39 @@ addRoute({
     }),
   ]),
   priority: "0.6",
+  changefreq: "monthly",
+});
+
+addRoute({
+  path: "/guide",
+  title: `Ordering Guide | ${brand}`,
+  description: guideDescription,
+  image: images.hero,
+  type: "article",
+  heading: "How to order with confidence",
+  noscriptIntro: guideDescription,
+  noscriptFaq: guideFaq,
+  noscriptLinks: categories.map((category) => ({
+    name: category.seoTitle || visibleName(category.name) || category.blurb,
+    path: `/${category.slug}`,
+  })),
+  jsonLd: withGlobal([
+    webPageJsonLd({
+      type: "CollectionPage",
+      name: `Ordering Guide | ${brand}`,
+      description: guideDescription,
+      url: absoluteUrl(baseUrl, "/guide"),
+    }),
+    faqJsonLd(guideFaq),
+    breadcrumbJsonLd({
+      baseUrl,
+      items: [
+        { name: "Home", path: "/" },
+        { name: "Buying Guide", path: "/guide" },
+      ],
+    }),
+  ]),
+  priority: "0.7",
   changefreq: "monthly",
 });
 

@@ -100,7 +100,7 @@
       },
       {
         "q": "What payment methods do you accept?",
-        "a": "Bitcoin, Cashapp, Apple Pay, Zelle, Chime and PayPal. Pick your preferred method in the cart and we confirm it with you directly."
+        "a": "Bitcoin, Apple Pay, Zelle and Chime. Pick your preferred method in the cart and we confirm it with you directly."
       }
     ],
     "ctaEyebrow": "Get In Touch",
@@ -135,8 +135,7 @@
     "Bitcoin",
     "Apple Pay",
     "Zelle",
-    "Chime",
-    "PayPal"
+    "Chime"
   ],
   "categories": [
     {
@@ -144,6 +143,7 @@
       "slug": "category-1",
       "name": ".",
       "blurb": "PREMIUM, PURITY, PERFORMANCE",
+      "seoTitle": "Injectables: Testosterone & Trenbolone | IRON ASCENSION",
       "seoDescription": "Shop research-grade injectables including testosterone, trenbolone, masteron and primobolan formulations with clear strengths and prices.",
       "introTitle": "Research-Grade Injectable Compounds",
       "intro": "The Iron Ascension injectables catalog brings together testosterone, nandrolone, trenbolone, masteron, primobolan and blend formulations in one place. Every listing shows the compound name, concentration and current catalog price, so you can compare short esters, long esters and high-concentration options without guessing.\n\nWe focus on clear product labeling, consistent batch presentation and discreet packing on every order request. Whether you are building a foundational testosterone protocol or restocking a specific compound, this collection covers the most requested injectable formats. Our team confirms availability before payment and dispatch instructions are sent.",
@@ -175,6 +175,7 @@
       "slug": "category-2",
       "name": ".",
       "blurb": "Oral research compounds",
+      "seoTitle": "Oral Tablets: Anavar, Dianabol & Winstrol | IRON ASCENSION",
       "seoDescription": "Compare oral tablets including Anavar, Turinabol, Dianabol, Anadrol, Winstrol and Proviron with clear strengths, sealed packs and simple ordering.",
       "introTitle": "Oral Tablet Catalog",
       "intro": "Our oral tablet range covers Anavar, Turinabol, Dianabol, Anadrol, Winstrol, Halotestin and Proviron across multiple strengths. Tablets are presented in clearly labeled, sealed packs, and every listing shows the compound, dose per tablet and catalog price.\n\nThis makes it straightforward to compare short-acting oral options for a cycle or to restock a specific dose. We keep the ordering process simple: add what you need to the cart, send one order request, and our team confirms stock before sending payment details. If you are unsure which strength matches your plan, support can point you to the right listing.",
@@ -206,6 +207,7 @@
       "slug": "category-3",
       "name": ".",
       "blurb": "Post Cycle Therapy & cycle support",
+      "seoTitle": "PCT & Cycle Support: Clomid, Nolvadex | IRON ASCENSION",
       "seoDescription": "Shop PCT products including Clomid 50 and Nolvadex 25. Compare strengths, check availability and add post-cycle support to your order request.",
       "introTitle": "Post-Cycle Therapy & Support",
       "intro": "The PCT category covers Clomid 50 and Nolvadex 25, two of the most requested post-cycle therapy products. These listings are grouped separately so they are easy to find alongside the main catalog.\n\nEach product page includes the compound, strength and price, and you can combine PCT items with other categories in a single order request. Our support team can confirm stock, explain the order-request workflow and help you check that your cart is complete before you send it.",
@@ -237,6 +239,7 @@
       "slug": "category-4",
       "name": ".",
       "blurb": "HCG products",
+      "seoTitle": "HCG Products: Gonasi 5000 IU | IRON ASCENSION",
       "seoDescription": "Shop Gonasi 5000 IU HCG with clear product details, discreet packing and a simple order-request process. Check availability with our team.",
       "introTitle": "HCG Products",
       "intro": "Our HCG category features Gonasi 5000 IU, supplied as a labeled kit with the strength clearly shown on the listing. HCG is kept in its own section so it is easy to locate when building an order request alongside PCT, injectables or support products.\n\nEach listing states the product format and price, and our team confirms availability before payment and dispatch. If you need help checking what is currently in stock, contact support with the product name and quantity you are considering.",
@@ -268,6 +271,7 @@
       "slug": "category-5",
       "name": ".",
       "blurb": "Performance and support products",
+      "seoTitle": "Performance & Support Compounds | IRON ASCENSION",
       "seoDescription": "Shop performance and support products including aromatase inhibitors, SARMs, Clenbuterol, T3 and research compounds in one organized category.",
       "introTitle": "Performance & Support Compounds",
       "intro": "This category brings together ancillary and support products: aromatase inhibitors such as Arimidex, Aromasin and Letrozole, cycle-support items, and a broad selection of SARMs and research compounds including MK-677, SR-9009, GW-501516 and GW-0742. It also includes Testogel, Viagra, Cialis, Clenbuterol, Cytomel T3, Lipo X and 5-Amino-1MQ.\n\nEvery listing shows the product name, strength and price so you can compare options quickly. Combine any of these items with your main order and send a single request; our team will verify stock before dispatch.",
@@ -299,6 +303,7 @@
       "slug": "category-6",
       "name": ".",
       "blurb": "Human growth hormone products",
+      "seoTitle": "HGH Kits: Humatrope, Hygetropin & More | IRON ASCENSION",
       "seoDescription": "Compare HGH kits from Humatrope, Dynatrope, Genotrophin, Somatotropin and Hygetropin with kit sizes, prices and discreet shipping.",
       "introTitle": "Human Growth Hormone Kits",
       "intro": "The HGH category lists Humatrope 100 IU, Dynatrope 100 IU, Genotrophin 36 IU, Somatotropin Kit 100 IU, Hygetropin 200 IU Kit and HGH Kit 100 IU. Listings are organized by brand and kit size so you can compare formats and prices in one view.\n\nHGH products are packed carefully and shipped discreetly, with tracking sent by email where available. Our team confirms stock before sending payment and dispatch instructions, and support can help you verify the exact kit you need.",
@@ -330,6 +335,7 @@
       "slug": "category-7",
       "name": ".",
       "blurb": "SARMS & Selective Labs",
+      "seoTitle": "SARMs: Ostarine, Ligandrol, RAD-140 | IRON ASCENSION",
       "seoDescription": "Shop SARMs including Ostarine, Ligandrol, Testolone, Andarine, S23, YK-11 and RAD-150 with clear strengths and simple order requests.",
       "introTitle": "SARMs & Selective Research Compounds",
       "intro": "Our SARMs section covers Ostarine (MK-2866), Ligandrol (LGD-4033), Testolone (RAD-140), Andarine (S4), S23, YK-11, RAD-150 and LGD-3033. Each listing includes the compound name, strength and price, making it easy to compare selective receptor modulators in one place.\n\nThese products are grouped separately from general support items so you can build a focused request. Add your selections to the cart, send one order request and our team will confirm availability before payment and dispatch.",
@@ -1018,8 +1024,8 @@
     }
   ],
   "home": {
-    "seoTitle": "",
-    "seoDescription": "",
+    "seoTitle": "IRON ASCENSION | Research Compounds & Bodybuilding Supplements",
+    "seoDescription": "Explore research compounds, SARMs, HGH, PCT and premium athletic gear. HPLC-verified catalog, clear prices and discreet order requests.",
     "heroEyebrow": "{brand}",
     "heroTitle": "Built for those who",
     "heroAccent": "ascend.",

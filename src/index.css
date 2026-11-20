@@ -352,6 +352,16 @@ input:focus, select:focus, textarea:focus { border-color: var(--red); outline: n
 .chat-btn { position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 70; width: 56px; height: 56px; border: 0; padding: 0; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0,0,0,.28); cursor: pointer; }
 .chat-btn:hover { background: var(--red-hover); }
 .chat-dot { position: absolute; left: -2px; bottom: -2px; width: 15px; height: 15px; border-radius: 50%; background: #4ade80; border: 2px solid #fff; }
+.chat-contact { position: fixed; right: 1.1rem; bottom: 5.2rem; z-index: 75; width: min(320px, calc(100vw - 2.2rem)); background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--red); border-radius: var(--radius); box-shadow: 0 16px 40px rgba(0,0,0,.18); padding: 1rem 1rem 1.1rem; }
+.chat-contact h3 { font-size: .95rem; margin-bottom: .2rem; }
+.chat-contact p { font-size: .82rem; color: var(--muted); line-height: 1.5; margin-bottom: .8rem; }
+.chat-contact .form { gap: .55rem; }
+.chat-contact .form label { font-size: .62rem; }
+.chat-contact input { padding: .55rem .7rem; font-size: .85rem; }
+.chat-contact .btn { width: 100%; min-height: 38px; font-size: .8rem; }
+.chat-contact-close { position: absolute; top: .35rem; right: .4rem; border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: .2rem; line-height: 0; }
+.chat-contact-close:hover { color: var(--red); }
+.chat-contact-done { margin: .2rem 0 0; font-size: .85rem; color: var(--green); font-weight: 600; }
 .toast { position: fixed; left: 50%; bottom: 5.5rem; transform: translate(-50%, 20px); background: #fff; color: var(--ink); font: 600 .85rem var(--font-body); padding: .85rem 1.3rem; border-radius: 6px; border-left: 4px solid var(--red); box-shadow: 0 12px 30px rgba(0,0,0,.16); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 80; max-width: calc(100% - 2rem); text-align: center; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 

@@ -16,7 +16,7 @@ export default function Home() {
         title={text(home.seoTitle) || `${site.name} | ${site.tagline}`}
         description={
           text(home.seoDescription) ||
-          `${site.name} — ${site.tagline} Browse ${categories.length} product categories including ${categoryNames}.`
+          `${site.name} — ${String(site.tagline).replace(/\.$/, "")}. Browse ${categories.length} product categories including ${categoryNames}.`
         }
         image={images.hero}
       />

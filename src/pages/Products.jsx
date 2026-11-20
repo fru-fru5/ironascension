@@ -18,8 +18,8 @@ export default function Products() {
   return (
     <>
       <Seo
-        title={`Shop All Products | ${site.name}`}
-        description={`Browse all ${products.length} products across ${categories.length} categories at ${site.name}. Search the catalog and request your order online.`}
+        title={`All Research Compounds & Products | ${site.name}`}
+        description={`Browse research compounds, SARMs, HGH, PCT and athletic gear across ${categories.length} categories. Compare strengths and prices, then request your order online.`}
         image={images.productsHero}
       />
       <div className="breadcrumb-bar">

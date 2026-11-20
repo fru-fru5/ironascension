@@ -10,6 +10,7 @@ const links = [
   { to: "/", label: "Home", end: true },
   { to: "/products", label: "Products" },
   { to: "/merch", label: site.merchLabel },
+  { to: "/guide", label: "Guide" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];

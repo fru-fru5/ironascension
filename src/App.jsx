@@ -13,6 +13,7 @@ import Category from "./pages/Category.jsx";
 import Merch from "./pages/Merch.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import About from "./pages/About.jsx";
+import Guide from "./pages/Guide.jsx";
 import Contact from "./pages/Contact.jsx";
 import Cart from "./pages/Cart.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/merch" element={<Merch />} />
           <Route path="/merch/:id" element={<ProductDetail />} />
+          <Route path="/guide" element={<Guide />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/order" element={<Cart />} />

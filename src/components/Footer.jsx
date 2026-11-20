@@ -17,6 +17,7 @@ export default function Footer() {
           <Link to="/">Home</Link>
           <Link to="/products">Products</Link>
           <Link to="/merch">{site.merchLabel}</Link>
+          <Link to="/guide">Buying Guide</Link>
         </div>
         <div>
           <h4>Company</h4>

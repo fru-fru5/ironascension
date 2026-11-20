@@ -148,6 +148,6 @@ export const faq = [
   },
   {
     q: "What payment methods do you accept?",
-    a: "Bitcoin, Cashapp, Apple Pay, Zelle, Chime and PayPal. Pick your preferred method in the cart and we confirm it with you directly.",
+    a: "Bitcoin, Apple Pay, Zelle and Chime. Pick your preferred method in the cart and we confirm it with you directly.",
   },
 ];

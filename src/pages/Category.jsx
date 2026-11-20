@@ -21,7 +21,7 @@ export default function Category({ category }) {
   return (
     <>
       <Seo
-        title={`${seoName} | ${site.name}`}
+        title={category.seoTitle || `${seoName} | ${site.name}`}
         description={
           category.seoDescription ||
           `${category.blurb || seoName}. Shop ${seoName} products at ${site.name}.`
