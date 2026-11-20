@@ -418,7 +418,7 @@ addRoute({
   noscriptIntro: guideDescription,
   noscriptFaq: guideFaq,
   noscriptLinks: categories.map((category) => ({
-    name: category.seoTitle || visibleName(category.name) || category.blurb,
+    name: visibleName(category.name) || category.blurb,
     path: `/${category.slug}`,
   })),
   jsonLd: withGlobal([
