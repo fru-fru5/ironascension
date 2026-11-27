@@ -1,14 +1,37 @@
 import { useEffect, useRef, useState } from "react";
 import { ChatIcon, CloseIcon } from "./Icons.jsx";
 
-// Smartsupp chat key is a public client-side identifier. Override with VITE_SMARTSUPP_KEY if needed.
-const DEFAULT_SMARTSUPP_KEY = "05a4cb749155ba6e48be24680ec1cb5f5ef040a3";
-const smartsuppKey = String(
-  import.meta.env.VITE_SMARTSUPP_KEY || DEFAULT_SMARTSUPP_KEY
+// Tawk.to IDs are public client-side identifiers. Override with env vars if needed.
+const DEFAULT_TAWK_PROPERTY_ID = "6b089d97467aa83d06cbeb6d";
+const DEFAULT_TAWK_WIDGET_ID = "1k8cqf6gm";
+const tawkPropertyId = String(
+  import.meta.env.VITE_TAWKTO_PROPERTY_ID || DEFAULT_TAWK_PROPERTY_ID
 ).trim();
+const tawkWidgetId = String(
+  import.meta.env.VITE_TAWKTO_WIDGET_ID || DEFAULT_TAWK_WIDGET_ID
+).trim();
+const tawkSrc =
+  tawkPropertyId && tawkWidgetId
+    ? `https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}`
+    : "";
 
 // Ask for contact details if an agent hasn't replied within this long.
 const NO_REPLY_MS = 45_000;
+
+const openWidget = () => {
+  const api = window.Tawk_API;
+  if (!api) return false;
+  let opened = false;
+  if (typeof api.showWidget === "function") {
+    api.showWidget();
+    opened = true;
+  }
+  if (typeof api.maximize === "function") {
+    api.maximize();
+    opened = true;
+  }
+  return opened;
+};
 
 export default function ChatButton() {
   const [showContactPrompt, setShowContactPrompt] = useState(false);
@@ -16,42 +39,16 @@ export default function ChatButton() {
   const [contact, setContact] = useState({ name: "", email: "", phone: "" });
   const noReplyTimer = useRef(null);
   const hideTimer = useRef(null);
-  const eventsBound = useRef(false);
+  const pendingOpen = useRef(false);
 
   useEffect(() => {
-    if (!smartsuppKey || document.getElementById("smartsupp-loader")) return;
+    if (!tawkSrc) return;
 
-    window._smartsupp = window._smartsupp || {};
-    window._smartsupp.key = smartsuppKey;
-    // Hide Smartsupp's built-in bubble so the site's button is the only launcher.
-    window._smartsupp.hideBanner = true;
+    const api = (window.Tawk_API = window.Tawk_API || {});
 
-    window.smartsupp ||
-      (function (d) {
-        const o = (window.smartsupp = function () {
-          o._.push(arguments);
-        });
-        o._ = [];
-        const s = d.getElementsByTagName("script")[0];
-        const c = d.createElement("script");
-        c.id = "smartsupp-loader";
-        c.type = "text/javascript";
-        c.charset = "utf-8";
-        c.async = true;
-        c.src = "https://www.smartsuppchat.com/loader.js?";
-        s.parentNode.insertBefore(c, s);
-      })(document);
-
-    // Keep Smartsupp's built-in launcher hidden so the site's chat button is the only trigger.
-    window.smartsupp("chat:hide");
-    window.smartsupp("on", "messenger_close", () => window.smartsupp("chat:hide"));
-  }, []);
-
-  useEffect(() => {
-    if (!smartsuppKey || eventsBound.current) return;
-    const api = window.smartsupp;
-    if (typeof api !== "function") return;
-    eventsBound.current = true;
+    const hideLauncher = () => {
+      if (typeof api.hideWidget === "function") api.hideWidget();
+    };
 
     const stopWaiting = () => {
       if (noReplyTimer.current) {
@@ -61,30 +58,54 @@ export default function ChatButton() {
       setShowContactPrompt(false);
     };
 
+    // Tawk's own bubble is hidden so the site's button is the only chat launcher.
+    api.onLoad = () => {
+      hideLauncher();
+      if (pendingOpen.current) {
+        pendingOpen.current = false;
+        openWidget();
+      }
+    };
+    api.onChatMinimized = hideLauncher;
+
     // A visitor sent a message: wait for an agent reply, then offer the contact form.
-    api("on", "message_sent", () => {
+    api.onChatMessageVisitor = () => {
       stopWaiting();
       setSubmitted(false);
       noReplyTimer.current = setTimeout(() => setShowContactPrompt(true), NO_REPLY_MS);
-    });
+    };
 
     // An agent replied, so there's no need to ask for contact details.
-    api("on", "message_received", stopWaiting);
+    api.onChatMessageAgent = stopWaiting;
 
-    // Smartsupp has no event-unsubscribe API; this component is mounted once at the app root.
+    hideLauncher();
+
+    if (!document.getElementById("tawkto-loader")) {
+      const firstScript = document.getElementsByTagName("script")[0];
+      const script = document.createElement("script");
+      script.id = "tawkto-loader";
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = tawkSrc;
+      script.charset = "UTF-8";
+      script.setAttribute("crossorigin", "*");
+      (firstScript?.parentNode ?? document.head).insertBefore(
+        script,
+        firstScript ?? null
+      );
+    }
+
+    // Tawk.to has no event-unsubscribe API; this component is mounted once at the app root.
     return () => {
       if (noReplyTimer.current) clearTimeout(noReplyTimer.current);
       if (hideTimer.current) clearTimeout(hideTimer.current);
     };
   }, []);
 
-  if (!smartsuppKey) return null;
+  if (!tawkSrc) return null;
 
   const openChat = () => {
-    if (typeof window.smartsupp === "function") {
-      window.smartsupp("chat:show");
-      window.smartsupp("chat:open");
-    }
+    if (!openWidget()) pendingOpen.current = true;
   };
 
   const dismiss = () => {
@@ -106,13 +127,15 @@ export default function ChatButton() {
     event.preventDefault();
     if (!contact.email.trim()) return;
 
-    if (typeof window.smartsupp === "function") {
+    const api = window.Tawk_API;
+    if (api && typeof api.setAttributes === "function") {
       try {
-        if (contact.name.trim()) window.smartsupp("name", contact.name.trim());
-        window.smartsupp("email", contact.email.trim());
-        if (contact.phone.trim()) window.smartsupp("phone", contact.phone.trim());
+        const attributes = { email: contact.email.trim() };
+        if (contact.name.trim()) attributes.name = contact.name.trim();
+        if (contact.phone.trim()) attributes.phone = contact.phone.trim();
+        api.setAttributes(attributes, () => {});
       } catch (error) {
-        console.warn("Smartsupp contact details could not be attached", error);
+        console.warn("Tawk.to contact details could not be attached", error);
       }
     }
 

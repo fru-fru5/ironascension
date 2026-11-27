@@ -50,10 +50,10 @@ The canonical base URL is `https://ironascensions.com`. Override it at build tim
 - `dist/sitemap.xml` lists every indexable route. `dist/robots.txt` disallows `/admin` and `/order`;
   the cart and 404 page are `noindex`.
 
-## Live chat (Smartsupp)
-The floating chat button opens Smartsupp live chat. The account key is set in `src/components/ChatButton.jsx` and Smartsupp's own floating bubble is hidden so the site's button is the only chat launcher.
+## Live chat (Tawk.to)
+The floating chat button opens Tawk.to live chat. The property and widget IDs are set in `src/components/ChatButton.jsx` and Tawk.to's own floating bubble is hidden so the site's button is the only chat launcher.
 
-To use a different Smartsupp account, either edit the key in `src/components/ChatButton.jsx` or set `VITE_SMARTSUPP_KEY` in `.env` (local) and in Cloudflare Pages (production). A set env var overrides the built-in key.
+To use a different Tawk.to account, either edit the IDs in `src/components/ChatButton.jsx` or set `VITE_TAWKTO_PROPERTY_ID` and `VITE_TAWKTO_WIDGET_ID` in `.env` (local) and in Cloudflare Pages (production). Set env vars override the built-in IDs.
 
 ## What to edit
 - Use the local admin at `/admin` for home page copy, catalog and site settings.
